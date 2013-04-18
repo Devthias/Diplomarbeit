@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <title>Jasmine Spec Runner</title>
+
+  <link rel="shortcut icon" type="image/png" href="vendor/jasmine/jasmine_favicon.png">
+  <link rel="stylesheet" type="text/css" href="vendor/jasmine/jasmine.css">
+  <script type="text/javascript" src="vendor/jasmine/jasmine.js"></script>
+  <script type="text/javascript" src="vendor/jasmine/jasmine-html.js"></script>
+
+  <!-- include spec files here... -->
+
+	<script type="text/javascript">
+ 
+    var require = {
+      paths: {
+        "domReady": "../js/vendor/require/domReady",
+        'js': '../js',
+      }
+    };
+ 
+  </script>
+  <script type="text/javascript" src="../js/vendor/require/require.js"></script>
+
+	<script type="text/javascript">
+ 
+    require(
+      [
+        "domReady!",
+        "spec/languageManagerTest",
+        'js/vendor/jquery/jquery.min',
+      ],
+      function( document ){
+
+        // Set up the HTML reporter - this is reponsible for
+        // aggregating the results reported by Jasmine as the
+        // tests and suites are executed.
+        jasmine.getEnv().addReporter(
+            new jasmine.HtmlReporter()
+        );
+
+        // Run all the loaded test specs.
+        jasmine.getEnv().execute();
+
+      }
+    );
+ 
+    </script>
+
+</head>
+
+<body>
+</body>
+</html>

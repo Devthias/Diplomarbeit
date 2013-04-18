@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="stylesheet" href="styles/index.css">
+
+    <link rel="stylesheet" href="app/vendor/kendo.mobile/kendo.mobile.all.min.css">
+
+    <script data-main="app/main" src="app/vendor/require/require.js"></script>
+    
+    <title>bridge4erp</title>
+
+  </head>
+  <body>
+
+    <div id="tabletApp" style="display:none;">
+      <div data-role="splitview">
+        <div data-role="pane" id="left" data-layout="side-default">
+          <div data-role="view">
+          </div>
+          <div data-role="layout" data-id="leftLayout">
+            <div data-role="header">
+              <div data-role="navbar">
+
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-role="pane" id="main-pane" data-layout="main-default">
+          <div data-role="view"></div>
+          <div data-role="layout" data-id="main-default">
+            <div data-role="header">
+              <div data-role="navbar">
+                
+              </div>
+            </div>
+            <div data-role="footer">
+              <div data-role="tabstrip">
+                <a href="app/modules/history/history.htm" data-icon="recents" data-bind="text: history"></a>
+                <a href="" data-icon="refresh" data-bind="text: synchronization"></a>
+                <a href="app/modules/settings/settings.htm" data-icon="settings" data-bind="text: settings"></a>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+    </div>
+    <div id="phoneApp" id="main-pane" style="display:none;">
+      <div data-role="view">
+      </div>
+      <div data-role="layout" data-id="phoneDefault" data-model="app.views.application.viewModel">
+        <div data-role="header">
+          <div data-role="navbar">
+            
+          </div>                       
+        </div>
+        <!--Content--> 
+        <div data-role="footer">
+          <div data-role="tabstrip">
+            <a href="app/modules/index/index.htm" data-icon="home" data-bind="text: functions"></a>
+            <a href="app/modules/history/history.htm" data-icon="recents" data-bind="text: history"></a>
+            <a href="" data-icon="refresh" data-bind="text: synchronization"></a>
+            <a href="app/modules/settings/settings.htm" data-icon="settings" data-bind="text: settings"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="cordova-2.6.0.js"></script>
+
+
+  </body>
+</html>

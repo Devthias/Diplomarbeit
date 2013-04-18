@@ -1,0 +1,227 @@
+{
+  "texts": {
+    "presenceAbsence": {
+        "de": "An-/Abwesenheiten",
+        "en": "",
+        "fr": "",
+        "it": ""
+    },
+    "clockInOut": {
+        "de": "Kommen / Gehen",
+        "en": "Clock in / out",
+        "fr": "",
+        "it": ""
+    },
+    "clockInOutAbsence": {
+        "de": "Kommen / Gehen mit Abwesenheit",
+        "en": "Clock in / out with absence",
+        "fr": "",
+        "it": ""
+    },
+    "absenceRange": {
+        "de": "Abwesenheitsbereich",
+        "en": "Absence range",
+        "fr": "",
+        "it": ""
+    },
+    "absenceTime": {
+        "de": "Abwesenheitszeit",
+        "en": "Absence time",
+        "fr": "",
+        "it": ""
+    },
+    "absenceHalfFullDay": {
+        "de": "Halb-/Ganztägige Abwesenheit",
+        "en": "Half fullday absence",
+        "fr": "",
+        "it": ""
+    },
+    "contractServices": {
+        "de": "Auftragsleistungen",
+        "en": "",
+        "fr": "",
+        "it": ""
+    },
+    "orderTime": {
+        "de": "Auftragszeiten",
+        "en": "Order times",
+        "fr": "",
+        "it": ""
+    },
+    "orderPiece": {
+        "de": "Auftragsstücke",
+        "en": "Order pieces",
+        "fr": "",
+        "it": ""
+    },
+    "orderExpenses": {
+        "de": "Auftragsspesen",
+        "en": "Order expenses",
+        "fr": "",
+        "it": ""
+    },
+    "orderProgress": {
+        "de": "Auftragsfortschritt",
+        "en": "",
+        "fr": "",
+        "it": ""
+    },
+    "interruptMessage": {
+        "de": "Unterbruchsmeldung",
+        "en": "Order interruptions",
+        "fr": "",
+        "it": ""
+    },
+    "interruptMessagePiece": {
+        "de": "Unterbruchsmeldung mit Stück",
+        "en": "Order int. w/ pieces",
+        "fr": "",
+        "it": ""
+    },
+    "finishedMessage": {
+        "de": "Fertigmeldung",
+        "en": "",
+        "fr": "",
+        "it": ""
+    },
+    "finishedMessagePiece": {
+        "de": "Fertigmeldung mit Stück",
+        "en": "",
+        "fr": "",
+        "it": ""
+    },
+    "finishedMessageShouldBe": {
+        "de": "Fertigmeldung Soll=Ist",
+        "en": "",
+        "fr": "",
+        "it": ""
+    },
+    "userLabel": {
+        "de": "Benuter",
+        "en": "User",
+        "fr": "",
+        "it": ""
+    },
+    "passwordLabel": {
+        "de": "Passwort",
+        "en": "Password",
+        "fr": "",
+        "it": ""
+    },
+    "languageLabel": {
+        "de": "Sprache",
+        "en": "Language",
+        "fr": "",
+        "it": ""
+    },
+    "synchronisationLabel": {
+        "de": "Synchronisation",
+        "en": "Synchronisation",
+        "fr": "",
+        "it": ""
+    }
+    ,
+    "home": {
+        "de": "Home",
+        "en": "Home",
+        "fr": "",
+        "it": ""
+    },
+    "history": {
+        "de": "Verlauf",
+        "en": "History",
+        "fr": "",
+        "it": ""
+    },
+    "settings": {
+        "de": "Einstellungen",
+        "en": "Settings",
+        "fr": "",
+        "it": ""
+    },
+    "timeTypeLabel": {
+        "de": "Zeitart",
+        "en": "Timetype",
+        "fr": "",
+        "it": ""
+    },
+    "absenceLabel": {
+        "de": "Abwesenheit",
+        "en": "Absence",
+        "fr": "",
+        "it": ""
+    },
+    "timeLabel": {
+        "de": "Zeit",
+        "en": "Time",
+        "fr": "",
+        "it": ""
+    },
+    "timeFromLabel": {
+        "de": "Uhrzeit von",
+        "en": "Time from",
+        "fr": "",
+        "it": ""
+    },
+    "timeToLabel": {
+        "de": "Uhrzeit bis",
+        "en": "Time to",
+        "fr": "",
+        "it": ""
+    },
+    "dateLabel": {
+        "de": "Datum",
+        "en": "Date",
+        "fr": "",
+        "it": ""
+    },
+    "bookLabel": {
+        "de": "Buchen",
+        "en": "Make booking",
+        "fr": "",
+        "it": ""
+    },
+    "timeAmountLabel": {
+        "de": "Zeitmenge",
+        "en": "Time amount",
+        "fr": "",
+        "it": ""
+    },
+    "dateFromLabel": {
+        "de": "Von-Datum",
+        "en": "From date",
+        "fr": "",
+        "it": ""
+    },
+    "dateToLabel": {
+        "de": "Bis-Datum",
+        "en": "To date",
+        "fr": "",
+        "it": ""
+    },
+    "serverLabel": {
+        "de": "Server",
+        "en": "Server",
+        "fr": "",
+        "it": ""
+    },
+    "clientLabel": {
+        "de": "Mandant",
+        "en": "Client",
+        "fr": "",
+        "it": ""
+    },
+    "backButton": {
+        "de": "Zurück",
+        "en": "Back",
+        "fr": "",
+        "it": ""
+    },
+    "comment": {
+        "de": "Kommentar",
+        "en": "Comment",
+        "fr": "",
+        "it": ""
+    }
+  }
+}

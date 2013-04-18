@@ -1,0 +1,26 @@
+<div id="view" data-role="view" id="orderTime" data-init="app.views.orderTime.initialize" data-before-show="app.views.orderTime.beforeShow" data-show="app.views.orderTime.show" data-model="app.views.orderTime.viewModel">
+	<div data-role="header">
+		<div data-role="navbar">
+        <a class="nav-button" data-role="backbutton" data-align="left">
+        	<label for="" data-bind="text: dialogTexts.backButton"></label>
+        </a>
+        bridge4erp
+        <a class="nav-button" data-role="button" data-align="right" data-bind="click: book">
+        	<label for="" data-bind="text: dialogTexts.bookLabel"></label>
+        </a>
+    </div>
+	</div>
+	
+	<label for="" data-bind="text: dialogTexts.orderTime"></label>
+
+	<form action="">
+		<ul data-role="listview" data-style="inset">
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.user"></label>
+			    <input type="text" data-bind="value: user">
+				</label>
+			</li>
+		</ul>
+	</form>
+</div>

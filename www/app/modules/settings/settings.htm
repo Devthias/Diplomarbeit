@@ -1,0 +1,59 @@
+<div id="view" data-role="view" id="settings" data-title="Settings" data-init="app.views.settings.initialize" data-before-show="app.views.settings.beforeShow" data-show="app.views.settings.show" data-model="app.views.settings.viewModel">
+	<div data-role="header">
+		<div data-role="navbar">
+        <a class="nav-button" data-role="backbutton" data-align="left">
+        	<label for="" data-bind="text: dialogTexts.backButton"></label>
+        </a>
+        bridge4erp
+    </div>
+	</div>
+	
+	<label for="" data-bind="text: dialogTexts.absenceRange"></label>
+	
+	<form action="">
+		<ul data-role="listview" data-style="inset">
+			<li>
+				<label>
+					<label for="" data-bind="text: dialogTexts.synchronisationLabel"></label>
+					<input type="number">
+				</label>
+			</li>
+		</ul>
+		<ul data-role="listview" data-style="inset">
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.serverLabel"></label>
+			    <input type="text" data-bind="value: server">
+				</label>
+			</li>
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.clientLabel"></label>
+			    <input type="text" data-bind="value: client">
+				</label>
+			</li>
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.userLabel"></label>
+			    <input type="text" data-bind="value: user">
+				</label>
+			</li>
+			<li>
+				<label for="">
+					<label for="" data-bind="text: dialogTexts.passwordLabel"></label>
+					<input type="password"></label>
+			</li>
+			<li>
+		    <label>
+		    	<label for="" data-bind="text: dialogTexts.languageLabel"></label>
+			    <select name="" id="languageList" data-bind="value: selectedLanguage, events: { change: languageSelectionChanged}"	>
+			    	<option value="de">Deutsch</option>
+		        <option value="en">English</option>
+		        <option value="fr">Francais</option>
+		        <option value="it">Italiano</option>
+			    </select>
+				</label>
+			</li>
+		</ul>
+	</form>
+</div>

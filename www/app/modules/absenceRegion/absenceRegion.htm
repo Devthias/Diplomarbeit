@@ -1,0 +1,49 @@
+<div id="view" data-role="view" id="absenceRegion" data-title="Settings" data-init="app.views.absenceRegion.initialize" data-before-show="app.views.absenceRegion.beforeShow" data-show="app.views.absenceRegion.show" data-model="app.views.absenceRegion.viewModel">
+
+	<div data-role="header">
+		<div data-role="navbar">
+        <a class="nav-button" data-role="backbutton" data-align="left">
+        	<label for="" data-bind="text: dialogTexts.backButton"></label>
+        </a>
+        bridge4erp
+        <a class="nav-button" data-role="button" data-align="right" data-bind="click: book">
+        	<label for="" data-bind="text: dialogTexts.bookLabel"></label>
+        </a>
+    </div>
+	</div>
+
+	<label for="" data-bind="text: dialogTexts.absenceRange"></label>
+
+	<form action="">
+		<ul data-role="listview" data-style="inset">
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.dateLabel"></label>
+			    <input type="date" data-bind="value: date">
+				</label>
+			</li>
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.timeFromLabel"></label>
+			    <input type="time" data-bind="value: timeFrom">
+				</label>
+			</li>
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.timeToLabel"></label>
+			    <input type="time" data-bind="value: timeTo">
+				</label>
+			</li>
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.timeTypeLabel"></label>
+  				<select name="" id="absenceList" data-bind="value: selectedAbsence">
+			    	<option value="de">Ferien</option>
+		        <option value="en">Krank</option>
+		        <option value="fr">Militär</option>
+			    </select>
+				</label>
+			</li>
+		</ul>
+	</form>
+</div>

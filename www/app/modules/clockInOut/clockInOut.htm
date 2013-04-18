@@ -1,0 +1,58 @@
+<div data-role="view" id="clockInOut" data-init="app.views.clockInOut.initialize" data-before-show="app.views.clockInOut.beforeShow" data-show="app.views.clockInOut.how" data-model="app.views.clockInOut.viewModel">
+
+	<div data-role="header">
+		<div data-role="navbar">
+        <a class="nav-button" data-role="backbutton" data-align="left">
+        	<label for="" data-bind="text: dialogTexts.backButton"></label>
+        </a>
+        <label for="" data-bind="text: dialogTexts.clockInOut"></label>
+        <a class="nav-button" data-role="button" data-align="right" data-bind="click: sendBooking">
+        	<label for="" data-bind="text: dialogTexts.bookLabel"></label>
+        </a>
+    </div>
+	</div>
+
+	<div data-role="modalview" id="notificationBox">
+		<label for="">Successfull</label>
+	</div>
+
+	<ul data-role="listview" data-style="inset">
+		<li>
+			<label>
+				<label for="" data-bind="text: dialogTexts.absenceLabel"></label>
+				<input id="withAbsenceSwitch" type="date" data-role="switch" data-bind="checked: model.Absence, events: { change: absenceSwitchChanged}">
+			</label>
+		</li>
+		<li id="absence" style="display: none">
+			<label>
+				<label for="" data-bind="text: dialogTexts.timeTypeLabel"></label>
+				<select name="" id="absenceList" data-bind="value: model.TimeType">
+		    	<option value="1">Ferien</option>
+	        <option value="2">Krank</option>
+	        <option value="3">Militär</option>
+		    </select>
+			</label>
+		</li>
+	</ul>
+	<ul data-role="listview" data-style="inset">
+		<li>
+			<label>
+				<label for="" data-bind="text: dialogTexts.dateLabel"></label>
+				<input id="date" type="date" data-bind="value: model.BookingDate">
+			</label>
+		</li>
+		<li>
+			<label>
+				<label for="" data-bind="text: dialogTexts.timeLabel"></label>
+				<input id="time" type="time" data-bind="value: model.BookingTime">
+			</label>
+		</li>
+		<li>
+			<label>
+				<label for="" data-bind="text: dialogTexts.comment"></label>
+				<input id="time" type="text" data-bind="value: model.Comment">
+			</label>
+		</li>
+	</ul>
+
+</div>

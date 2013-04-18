@@ -1,0 +1,42 @@
+<div id="view" data-role="view" id="absenceTime" data-title="Settings" data-init="app.views.absenceTime.initialize" data-before-show="app.views.absenceTime.beforeShow" data-show="app.views.absenceTime.show" data-model="app.views.absenceTime.viewModel">
+	<div data-role="header">
+		<div data-role="navbar">
+        <a class="nav-button" data-role="backbutton" data-align="left">
+        	<label for="" data-bind="text: dialogTexts.backButton"></label>
+        </a>
+        bridge4erp
+        <a class="nav-button" data-role="button" data-align="right" data-bind="click: book">
+        	<label for="" data-bind="text: dialogTexts.bookLabel"></label>
+        </a>
+    </div>
+	</div>
+	
+	<label for="" data-bind="text: dialogTexts.absenceTime"></label>
+	
+	<form action="">
+		<ul data-role="listview" data-style="inset">
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.dateLabel"></label>
+			    <input type="date" data-bind="value: date">
+				</label>
+			</li>
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.timeTypeLabel"></label>
+  				<select name="" id="absenceList" data-bind="value: selectedAbsence">
+			    	<option value="de">Ferien</option>
+		        <option value="en">Krank</option>
+		        <option value="fr">Militär</option>
+			    </select>
+				</label>
+			</li>
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.timeAmountLabel"></label>
+			    <input type="time" data-bind="value: timeTo">
+				</label>
+			</li>
+		</ul>
+	</form>
+</div>

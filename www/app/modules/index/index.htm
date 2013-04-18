@@ -1,0 +1,35 @@
+<div data-role="view" id="indexView"
+    data-init="app.views.index.initialize"
+    data-before-show="app.views.index.beforeShow"
+    data-show="app.views.index.show"
+    data-model="app.views.index.viewModel">
+    <img id="logoBlack" src="img/bridge4erp.png">
+    <img id="logoWhite" src="img/bridge4erpWeiss.png">
+    <ul data-role="listview" data-type="group" data-style="inset">
+        <label for="presenceAbsence" data-bind="text: dialogTexts.presenceAbsence"></label>
+    	<li id="presenceAbsence">
+    		<ul>
+		    	<li><a href="app/modules/clockInOut/clockInOut.htm" data-bind="text: dialogTexts.clockInOut" data-target="main-pane"></a></li>
+		    	<li><a href="app/modules/clockInOut/clockInOut.htm" data-bind="text: dialogTexts.clockInOutAbsence" data-target="main-pane"></a></li>
+		    	<li><a href="app/modules/absenceRegion/absenceRegion.htm" data-bind="text: dialogTexts.absenceRange" data-target="main-pane"></a></li>
+		    	<li><a href="app/modules/absenceTime/absenceTime.htm" data-bind="text: dialogTexts.absenceTime" data-target="main-pane"></a></li>
+		    	<li><a href="app/modules/halfFullDayAbsence/halfFullDayAbsence.htm" data-bind="text: dialogTexts.absenceHalfFullDay" data-target="main-pane"></a></li>
+    		</ul>
+    	</li>
+        <label for="contractServices" data-bind="text: dialogTexts.contractServices"></label>
+    	<li id="contractServices">
+    		<ul>
+		    	<li><a href="app/modules/orderTime/orderTime.htm" data-bind="text: dialogTexts.orderTime" data-target="main-pane"></a></li>
+		    	<li><a href="app/modules/orderPiece/orderPiece.htm" data-bind="text: dialogTexts.orderPiece" data-target="main-pane"></a></li>
+		    	<li><a href="app/modules/orderExpenses/orderExpenses.htm" data-bind="text: dialogTexts.orderExpenses" data-target="main-pane"></a></li>
+    		</ul>
+    	</li>
+        <label for="orderProgress" data-bind="text: dialogTexts.orderProgress"></label>
+    	<li id="orderProgress">
+    		<ul>
+		    	<li><a href="app/modules/interruptMessage/interruptMessage.htm" data-bind="text: dialogTexts.interruptMessage" data-target="main-pane"></a></li>
+		    	<li><a href="app/modules/interruptMessagePiece/interruptMessagePiece.htm" data-bind="text: dialogTexts.interruptMessagePiece" data-target="main-pane"></a></li>
+    		</ul>
+    	</li>
+    </ul>
+</div>

@@ -4,6 +4,7 @@ define([
   'jquery',
 ], function($){
   
+    // Liest einen Querystring aus der URL
 	var getQueryString = function(param){
         /*var pageURL = window.location;
         console.log(pageURL);
@@ -19,7 +20,15 @@ define([
         }*/
     };
 
+    // Konvertiert ein Datum vom Typ Kendo.Date zu einem String, der durch den WCF Serializer verstanden wird
+    var dateToWcfFormat = function(dateString) {
+      var date = new Date(dateString);
+      var parsedDate = '\/Date(' + date.getTime() + '-0000)\/';
+      return parsedDate;
+    };
+
     return {
-        getQueryString: getQueryString
+        getQueryString: getQueryString,
+        dateToWcfFormat: dateToWcfFormat
     };
 });

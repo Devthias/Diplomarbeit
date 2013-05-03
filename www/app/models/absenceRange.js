@@ -5,44 +5,49 @@ define([
   'kendo'
 ], function($, Kendo){
 
-  var AbsenceRange = kendo.data.Model.define({
-    id: 'Id',
-    fields: {
-      Id: {
-        editable: false,
-        nullable: true
-      },
-      Person: {
-        type: 'int',
-        validation: {
-          required: true
-        }
-      },
-      Date: {
-        type: 'date',
-        validation: {
-          required: true
-        }
-      },
-      TimeFrom: {
-        type: 'time',
-        validation: {
-          required: true
-        }
-      },
-      TimeTo: {
-        type: 'time',
-        validation: {
-          required: true
-        }
-      },
-      TimeType: {
-        type: 'int'
-      },
-      Comment: {
-        type: 'string'
-      }
-    }
+  var AbsenceRange = kendo.Class.extend({
+
+    //
+    // Properties
+    //
+    PersonId: 0,
+    TimeFrom: null,
+    TimeTo: null,
+    Date: null,
+    TimeTypeNo: 0,
+    Comment: "",
+
+    // 
+    // Constructor
+    //
+    init: function(){},
+
+    // Erstellt das Message Objekt, welches dem Service übergeben wird
+    getMessageObject: function(){
+
+      var entry = new Object();
+      entry.PersonId = this.PersonId;
+      entry.TimeFrom = Helper.dateToWcfFormat(kendo.toString(kendo.parseDate(this.TimeFrom)));
+      entry.TimeTo = Helper.dateToWcfFormat(kendo.toString(kendo.parseDate(this.TimeTo)));
+      entry.Date = Helper.dateToWcfFormat(kendo.toString(kendo.parseDate(this.Date)));
+      entry.TimeTypeNo = this.TimeTypeNo;
+      entry.Comment = this.Comment;
+
+      var message = new Object();
+      message.userid = 104;
+      message.entry = entry;
+
+      console.log(entry.Time);
+
+      return message;
+    },
+
+    dateToWcfFormat: function(dateString) {
+      var date = new Date(dateString);
+      var parsedDate = '\/Date(' + date.getTime() + '-0000)\/';
+      return parsedDate;
+    },
+
   });
 
   return AbsenceRange;

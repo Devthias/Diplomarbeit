@@ -1,39 +1,65 @@
 // Filename: serverStorage.js
 
 define([
-  'jquery'
-], function($){
+  'jquery',
+  'messageFactory'
+], function($, MessageFactory){
   
 	function ServerStorage(){};
 
-	// Makes a POST call
+	// Führt einen POST Request aus
 	ServerStorage.prototype.saveData = function(request, callback){
-		$.ajax({
-			url: request.url,
-			type: 'POST',
-			dataType: 'jsonp',
-			jsonp: false,
-			jsonpCallback: request.callback
-		}).done(callback)
-		.fail(this.errorHandler);
+
+		// Die MessageFactory selektiert die korrekte URL
+		var messageFactory = new MessageFactory();
+  	var url = messageFactory.getServiceUrl(request.model);
+
+  	console.log(url);
+
+  	// Aufruf des Webservices
+  	$.ajax({
+      url: url,
+      type: 'POST',
+			data: JSON.stringify(request.data),
+			contentType: "application/json",
+      crossDomain: true,
+			success: function (result) {
+				console.log("POST result: " + JSON.stringify(result));
+			},
+			error: function(responseData, textStatus, jqXHR) {
+				console.log(jqXHR);
+			}
+    });
 	};
 
-	// Makes a GET call
+	// Führt einen GET Request aus
 	ServerStorage.prototype.readData = function(request, callback){
+
+		var messageFactory = new MessageFactory();
+		var url = messageFactory.getServiceUrl(request.model);
+
+		console.log('get url: ' + url);
+
 		$.ajax({
-			url: request.url,
+			url: url,
 			type: 'GET',
 			dataType: 'jsonp',
 			jsonp: false,
-			jsonpCallback: request.callback
-		}).done(callback)
+			jsonpCallback: request.callback,
+			success: callback,
+
+		})
 		.fail(this.errorHandler);
 	};
 
-	// Makes a PUT call
+	// Führt einen PUT Request aus
 	ServerStorage.prototype.updateData = function(request, callback){
+
+		var messageFactory = new MessageFactory();
+		var url = messageFactory.getServiceUrl(request.model);
+
 		$.ajax({
-			url: request.url,
+			url: url,
 			type: 'PUT',
 			dataType: 'jsonp',
 			jsonp: false,
@@ -42,10 +68,14 @@ define([
 		.fail(this.errorHandler);
 	};
 
-	// Makes a DELETE call
+	// Führt einen DELETE Request aus
 	ServerStorage.prototype.deleteData =  function(request, callback){
+
+		var messageFactory = new MessageFactory();
+		var url = messageFactory.getServiceUrl(request.model);
+
 		$.ajax({
-			url: request.url,
+			url: url,
 			type: 'DELETE',
 			dataType: 'jsonp',
 			jsonp: false,

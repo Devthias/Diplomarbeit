@@ -1,34 +1,31 @@
 define([
 	'jquery',
 	'kendo',
-	'languageManager'
-], function($, Kendo, languageManager){
+	'languageManager',
+	'models/settings'
+], function($, Kendo, languageManager, Settings){
 
 	function SettingsViewModel(){
 		this.reloadDialogTexts();
-		this.selectedLanguage = localStorage.getItem('currentLanguage');
 		Kendo.bind($("#view"), SettingsViewModel.prototype);
 	};
 
 	SettingsViewModel.prototype = Kendo.observable({});
 
-	SettingsViewModel.prototype.textArray = ['userLabel', 'passwordLabel', 'languageLabel', 'synchronisationLabel', 'serverLabel', 'clientLabel', 'backButton'];
+	SettingsViewModel.prototype.textArray = ['languageLabel', 'synchronisationLabel', 'backButton', 'isTerminal', 'settings', 'loginHeader'];
 
 	SettingsViewModel.prototype.dialogTexts = {};
 
-	SettingsViewModel.prototype.languageSelectionChanged = function(e){
-		localStorage.setItem('currentLanguage', this.selectedLanguage);
+	SettingsViewModel.prototype.SettingsChanged = function(e){
+		this.settings.save();
 		this.reloadDialogTexts();
 	};
 
 	SettingsViewModel.prototype.reloadDialogTexts = function(){
-		console.log('reloaded');
 		SettingsViewModel.prototype.set('dialogTexts', languageManager.getLanguageStrings(this.textArray));
 	};
 
-	SettingsViewModel.prototype.selectedLanguage = "";
-
-	SettingsViewModel.prototype.user = "";
+	SettingsViewModel.prototype.settings = new Settings();
 
   return SettingsViewModel;
 

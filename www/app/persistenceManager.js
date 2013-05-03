@@ -6,13 +6,12 @@ define([
   'serverStorage'
 ], function($, localStorage, serverStorage){
   
-	function PersistenceManager(){};
+  function PersistenceManager(){};
 
   // Calls the save method on the choosen store
-	PersistenceManager.prototype.saveRequest = function(request, callback){
+  PersistenceManager.prototype.saveRequest = function(request, callback){
     console.log('persistenceStrategy save called:');
     var persistenceStrategy = this.getPersistanceStrategy();
-    console.log(persistenceStrategy);
     persistenceStrategy.saveData(request, callback);
   };
 
@@ -37,10 +36,10 @@ define([
   // Creates a store object, depending on serverStatus of the app object
   PersistenceManager.prototype.getPersistanceStrategy = function(){
 
-  	var status = app.serverStatus;
+    var status = app.serverStatus;
 
-  	if(status === 'offline') return new localStorage();
-  	if(status === 'online') return new serverStorage();
+    if(status === 'offline') return new localStorage();
+    if(status === 'online') return new serverStorage();
 
   };
 

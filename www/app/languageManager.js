@@ -16,7 +16,7 @@ define([
 
 		languageObject = $.parseJSON(languageString);
 
-		languageString = languageObject[localStorage.getItem('currentLanguage')];
+		languageString = languageObject[localStorage.getItem('Language')];
 
 		return languageString;
 	};
@@ -25,7 +25,7 @@ define([
 		var result = {};
 		var languageString;
 		var languageObject;
-		var currentLanguage = localStorage.getItem('currentLanguage');
+		var currentLanguage = localStorage.getItem('Language');
 
 		if(currentLanguage === null){
 			currentLanguage = "de";

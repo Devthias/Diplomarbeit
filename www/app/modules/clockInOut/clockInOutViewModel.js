@@ -37,7 +37,7 @@ define([
 	});
 	ComeLeaveViewModel.prototype.persistenceManager = new PersistenceManager();
 	ComeLeaveViewModel.prototype.model = new ClockInOut();
-	ComeLeaveViewModel.prototype.textArray = ['timeTypeLabel', 'absenceLabel','dateLabel', 'timeLabel', 'bookLabel', 'comeLeaveLabel', 'comeLeave', 'backButton', 'comment','clockInOut'];
+	ComeLeaveViewModel.prototype.textArray = ['timeTypeLabel', 'absenceLabel','dateLabel', 'timeLabel', 'bookLabel', 'comeLeaveLabel', 'comeLeave', 'backButton', 'comment','clockInOut', 'employee'];
 	ComeLeaveViewModel.prototype.dialogTexts = {};
 
 	//
@@ -55,7 +55,7 @@ define([
 		*/
 
 		var request = {
-			data: this.model,
+			data: this.model.getMessageObject(),
 			type: 'insert',
 			model: 'clockInOut'
 		}
@@ -78,6 +78,7 @@ define([
 	// Eventhandlers
 	//
 	ComeLeaveViewModel.prototype.sendBookingCompleted = function(response){
+		console.log(response);
 		navigator.notification.alert('Buchung gespeichert', this.notificationCallback, 'Erfolgreich', 'Ok');
 	};
 

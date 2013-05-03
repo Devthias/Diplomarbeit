@@ -222,6 +222,12 @@
         "en": "Comment",
         "fr": "",
         "it": ""
+    },
+    "isTerminal":{
+        "de": "Terminal",
+        "en": "Terminal",
+        "fr": "",
+        "it": ""
     }
   }
 }

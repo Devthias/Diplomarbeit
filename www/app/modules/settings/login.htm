@@ -1,0 +1,42 @@
+<div data-role="view" id="login" data-init="app.views.login.initialize" data-before-show="app.views.login.beforeShow" data-show="app.views.login.show" data-model="app.views.login.viewModel">
+	<div data-role="header">
+		<div data-role="navbar">
+        <a class="nav-button" data-role="backbutton" data-align="left">
+        	<label for="" data-bind="text: dialogTexts.backButton"></label>
+        </a>
+        <label for="" data-bind="text: dialogTexts.loginHeader"></label>
+        <a class="nav-button" data-role="button" data-align="right" data-bind="click: login">
+        	<label for="" data-bind="text: dialogTexts.login"></label>
+        </a>
+		</div>
+  </div>
+	
+	<form action="">
+
+		<ul data-role="listview" data-style="inset">
+
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.serverLabel"></label>
+			    <input type="text" data-bind="value: loginInformation.ServerUrl, events: { change: LoginInformationChanged}">
+				</label>
+			</li>
+
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.userLabel"></label>
+			    <input type="text" data-bind="value: loginInformation.User, events: { change: LoginInformationChanged}">
+				</label>
+			</li>
+
+			<li>
+				<label for="">
+					<label for="" data-bind="text: dialogTexts.passwordLabel"></label>
+					<input type="password" data-bind="value: loginInformation.Password, events: { change: LoginInformationChanged}"></label>
+			</li>
+
+		</ul>
+
+	</form>
+
+</div>

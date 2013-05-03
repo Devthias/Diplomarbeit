@@ -18,6 +18,7 @@ define([
   'modules/orderPiece/orderPieceView',
   'modules/orderTime/orderTimeView',
   'modules/settings/settingsView',
+  'modules/settings/loginView',
   'modules/absenceRegion/absenceRegionViewModel',
   'modules/absenceTime/absenceTimeViewModel',
   'modules/clockInOut/clockInOutViewModel',
@@ -31,7 +32,8 @@ define([
   'modules/orderPiece/orderPieceViewModel',
   'modules/orderTime/orderTimeViewModel',
   'modules/settings/settingsViewModel',
-], function($, Kendo, helper, languageManager, absenceRegionView, absenceTimeView, clockInOutView, halfFullDayAbsenceView, historyView, indexView, interruptMessagePieceView, interruptMessageView, navbarView, orderExpensesView, orderPieceView, orderTimeView, settingsView, absenceRegionViewModel, absenceTimeViewModel, clockInOutViewModel, halfFullDayAbsenceViewModel, historyViewModel, indexViewModel, interruptMessagePieceViewModel, interruptMessageViewModel, navbarViewModel, orderExpensesViewModel, orderPieceViewModel, orderTimeViewModel, settingsViewModel){
+  'modules/settings/loginViewModel',
+], function($, Kendo, helper, languageManager, absenceRegionView, absenceTimeView, clockInOutView, halfFullDayAbsenceView, historyView, indexView, interruptMessagePieceView, interruptMessageView, navbarView, orderExpensesView, orderPieceView, orderTimeView, settingsView, loginView, absenceRegionViewModel, absenceTimeViewModel, clockInOutViewModel, halfFullDayAbsenceViewModel, historyViewModel, indexViewModel, interruptMessagePieceViewModel, interruptMessageViewModel, navbarViewModel, orderExpensesViewModel, orderPieceViewModel, orderTimeViewModel, settingsViewModel, loginViewModel){
 
     var _app;
 
@@ -118,7 +120,7 @@ define([
 
       isTablet: false,
 
-      serverStatus: 'offline',
+      serverStatus: 'online',
 
       views: {
         navbar: navbarView,
@@ -134,6 +136,7 @@ define([
         orderPiece: orderPieceView,
         orderTime: orderTimeView,
         settings: settingsView,
+        login: loginView,
       },
 
       viewModels: {},

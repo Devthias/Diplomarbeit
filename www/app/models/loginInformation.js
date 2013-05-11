@@ -2,14 +2,15 @@
 
 define([
   'jquery',
-  'kendo'
-], function($, Kendo){
+  'kendo',
+  'helper'
+], function($, Kendo, Helper){
 
-  //
-  // Properties
-  //
-  var LoginInformation = kendo.Class.extend({
+  var LoginInformation = Kendo.Class.extend({
 
+    //
+    // Properties
+    //
     ServerUrl: "",
     User: "",
     Password: "",
@@ -18,29 +19,38 @@ define([
     // Constructor
     //
     init: function(){
-      this.ServerUrl = localStorage.getItem('ServerUrl');
-      this.User = localStorage.getItem('User');
-      this.Password = localStorage.getItem('Password');
+      var loginInformation = JSON.parse(localStorage.getItem('LoginInformation'));
+
+      if(loginInformation === null) return;
+      this.ServerUrl = loginInformation.ServerUrl;
+      this.User = loginInformation.User;
+      this.Password = loginInformation.Password;
+
+      console.log(this);
     },
 
     //
     // Methods
     //
     save: function(){
-      console.log('save called:');
-      localStorage.setItem('ServerUrl', this.ServerUrl);
-      localStorage.setItem('User', this.User);
-      localStorage.setItem('Password', this.Password);
+      var loginInformation = new Object();
+
+      loginInformation.ServerUrl = this.ServerUrl;
+      loginInformation.User = this.User;
+      loginInformation.Password = this.Password;
+
+      localStorage.setItem('LoginInformation', JSON.stringify(loginInformation));
     },
 
     getMessageObject: function(){
+
       var message = new Object();
-      message.ServerUrl = this.ServerUrl;
-      message.User = this.User;
-      message.Password = this.Password;
+      message.username = this.User;
+      message.password = this.Password;
 
       return message;
     },
+
   });
 
   return LoginInformation;

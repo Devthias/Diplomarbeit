@@ -34,7 +34,7 @@ define([
         );
     };
 
-    LocalStorage.prototype.saveData = function(request, callback){
+    LocalStorage.prototype.POSTData = function(request, callback){
         this.initialize();
         this.createTables();
 
@@ -52,7 +52,7 @@ define([
         callback();
     };
 
-    LocalStorage.prototype.updateData = function(request, callback){
+    LocalStorage.prototype.PUTData = function(request, callback){
         this.initialize();
         this.createTables();
 
@@ -69,7 +69,7 @@ define([
         callback();
     };
 
-    LocalStorage.prototype.deleteData = function(request, callback){
+    LocalStorage.prototype.DELETEData = function(request, callback){
         this.initialize();
         this.createTables();
 
@@ -88,7 +88,7 @@ define([
         callback();
     };
 
-    LocalStorage.prototype.readData = function(request, callback){
+    LocalStorage.prototype.GETData = function(request, callback){
         this.initialize();
         this.createTables();
 

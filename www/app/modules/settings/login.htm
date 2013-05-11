@@ -1,9 +1,6 @@
 <div data-role="view" id="login" data-init="app.views.login.initialize" data-before-show="app.views.login.beforeShow" data-show="app.views.login.show" data-model="app.views.login.viewModel">
 	<div data-role="header">
 		<div data-role="navbar">
-        <a class="nav-button" data-role="backbutton" data-align="left">
-        	<label for="" data-bind="text: dialogTexts.backButton"></label>
-        </a>
         <label for="" data-bind="text: dialogTexts.loginHeader"></label>
         <a class="nav-button" data-role="button" data-align="right" data-bind="click: login">
         	<label for="" data-bind="text: dialogTexts.login"></label>
@@ -18,10 +15,12 @@
 			<li>
 				<label>
 			    <label for="" data-bind="text: dialogTexts.serverLabel"></label>
-			    <input type="text" data-bind="value: loginInformation.ServerUrl, events: { change: LoginInformationChanged}">
+			    <input type="text" data-bind="value: loginInformation.ServerUrl, events: { change: serverUrlChanged}">
 				</label>
 			</li>
 
+		</ul>
+		<ul data-role="listview" data-style="inset">
 			<li>
 				<label>
 			    <label for="" data-bind="text: dialogTexts.userLabel"></label>

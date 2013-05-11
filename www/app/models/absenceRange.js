@@ -2,8 +2,9 @@
 
 define([
   'jquery',
-  'kendo'
-], function($, Kendo){
+  'kendo',
+  'helper'
+], function($, Kendo, Helper){
 
   var AbsenceRange = kendo.Class.extend({
 
@@ -40,12 +41,6 @@ define([
       console.log(entry.Time);
 
       return message;
-    },
-
-    dateToWcfFormat: function(dateString) {
-      var date = new Date(dateString);
-      var parsedDate = '\/Date(' + date.getTime() + '-0000)\/';
-      return parsedDate;
     },
 
   });

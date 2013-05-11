@@ -9,28 +9,28 @@ define([
   function PersistenceManager(){};
 
   // Calls the save method on the choosen store
-  PersistenceManager.prototype.saveRequest = function(request, callback){
+  PersistenceManager.prototype.POSTRequest = function(request, callback, failedCallback){
     console.log('persistenceStrategy save called:');
     var persistenceStrategy = this.getPersistanceStrategy();
-    persistenceStrategy.saveData(request, callback);
+    persistenceStrategy.POSTData(request, callback, failedCallback);
   };
 
   // Calls the update method on the choosen store
-  PersistenceManager.prototype.updateRequest = function(request, callback){
+  PersistenceManager.prototype.PUTRequest = function(request, callback, failedCallback){
     var persistenceStrategy = this.getPersistanceStrategy();
-    persistenceStrategy.updateData(request, callback);
+    persistenceStrategy.PUTData(request, callback, failedCallback);
   };
 
   // Calls the delete method on the choosen store
-  PersistenceManager.prototype.deleteRequest = function(request, callback){
+  PersistenceManager.prototype.DELETERequest = function(request, callback, failedCallback){
     var persistenceStrategy = this.getPersistanceStrategy();
-    persistenceStrategy.deleteData(request, callback);
+    persistenceStrategy.DELETEData(request, callback, failedCallback);
   };
 
   // Calls the read method on the choosen store
-  PersistenceManager.prototype.readRequest = function(request, callback){
+  PersistenceManager.prototype.GETRequest = function(request, callback, failedCallback){
     var persistenceStrategy = this.getPersistanceStrategy();
-    persistenceStrategy.readData(request, callback);
+    persistenceStrategy.GETData(request, callback, failedCallback);
   };
 
   // Creates a store object, depending on serverStatus of the app object

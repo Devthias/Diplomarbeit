@@ -19,8 +19,18 @@
 	<ul data-role="listview" data-style="inset">
 		<li>
 			<label>
+				<label for="" data-bind="text: dialogTexts.employee"></label>
+				<select name="" id="employeeList" data-bind="value: model.PersonId">
+		    	<option value="104">Ferien</option>
+	        <option value="2">Krank</option>
+	        <option value="3">Militär</option>
+		    </select>
+			</label>
+		</li>
+		<li>
+			<label>
 				<label for="" data-bind="text: dialogTexts.absenceLabel"></label>
-				<input id="withAbsenceSwitch" data-role="switch" data-bind="checked: model.Absence, events: { change: absenceSwitchChanged}">
+				<input id="withAbsenceSwitch" type="date" data-role="switch" data-bind="checked: model.Absence, events: { change: absenceSwitchChanged}">
 			</label>
 		</li>
 		<li id="absence" style="display: none">
@@ -38,13 +48,13 @@
 		<li>
 			<label>
 				<label for="" data-bind="text: dialogTexts.dateLabel"></label>
-				<input id="date" type="date" data-bind="value: model.BookingDate">
+				<input id="date" type="date" data-bind="value: model.Date">
 			</label>
 		</li>
 		<li>
 			<label>
 				<label for="" data-bind="text: dialogTexts.timeLabel"></label>
-				<input id="time" type="time" data-bind="value: model.BookingTime">
+				<input id="time" type="time" data-bind="value: model.Time">
 			</label>
 		</li>
 		<li>

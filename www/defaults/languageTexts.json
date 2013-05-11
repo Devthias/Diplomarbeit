@@ -1,8 +1,8 @@
 {
   "texts": {
-    "presenceAbsence": {
-        "de": "An-/Abwesenheiten",
-        "en": "",
+    "timeCorrections": {
+        "de": "Zeit Korrekturen",
+        "en": "Time corrections",
         "fr": "",
         "it": ""
     },
@@ -30,69 +30,51 @@
         "fr": "",
         "it": ""
     },
-    "absenceHalfFullDay": {
+    "halfFullDayAbsence": {
         "de": "Halb-/Ganztägige Abwesenheit",
         "en": "Half fullday absence",
         "fr": "",
         "it": ""
     },
-    "contractServices": {
-        "de": "Auftragsleistungen",
-        "en": "",
+    "dateFrom": {
+        "de": "Von-Datum",
+        "en": "Half fullday absence",
         "fr": "",
         "it": ""
     },
-    "orderTime": {
-        "de": "Auftragszeiten",
-        "en": "Order times",
+    "dateTo": {
+        "de": "Von-Datum",
+        "en": "Half fullday absence",
         "fr": "",
         "it": ""
     },
-    "orderPiece": {
-        "de": "Auftragsstücke",
-        "en": "Order pieces",
+    "morning": {
+        "de": "Vormittag",
+        "en": "Morning",
         "fr": "",
         "it": ""
     },
-    "orderExpenses": {
-        "de": "Auftragsspesen",
-        "en": "Order expenses",
+    "fullDay": {
+        "de": "Ganzer Tag",
+        "en": "Full Day",
         "fr": "",
         "it": ""
     },
-    "orderProgress": {
-        "de": "Auftragsfortschritt",
-        "en": "",
+    "afternoon": {
+        "de": "Nachmittag",
+        "en": "Afternoon",
         "fr": "",
         "it": ""
     },
-    "interruptMessage": {
-        "de": "Unterbruchsmeldung",
-        "en": "Order interruptions",
+    "dayPart": {
+        "de": "Tages Teil",
+        "en": "Part of day",
         "fr": "",
         "it": ""
     },
-    "interruptMessagePiece": {
-        "de": "Unterbruchsmeldung mit Stück",
-        "en": "Order int. w/ pieces",
-        "fr": "",
-        "it": ""
-    },
-    "finishedMessage": {
-        "de": "Fertigmeldung",
-        "en": "",
-        "fr": "",
-        "it": ""
-    },
-    "finishedMessagePiece": {
-        "de": "Fertigmeldung mit Stück",
-        "en": "",
-        "fr": "",
-        "it": ""
-    },
-    "finishedMessageShouldBe": {
-        "de": "Fertigmeldung Soll=Ist",
-        "en": "",
+    "timeData": {
+        "de": "Zeitdaten",
+        "en": "Timedata",
         "fr": "",
         "it": ""
     },

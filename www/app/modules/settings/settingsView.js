@@ -3,12 +3,49 @@
 define([
 	'jquery',
 	'kendo',
-	'../settings/settingsViewModel'
-], function($, Kendo, settingsViewModel){
+	'languageManager',
+	'models/settings'
+], function($, Kendo, languageManager, Settings){
 
-	var _viewModel = new settingsViewModel();
+	var _viewModel = Kendo.observable({
+
+    //
+    // Properties
+    //
+		settings: new Settings(),
+		textArray: ['languageLabel', 'synchronisationLabel', 'backButton', 'isTerminal', 'settings', 'loginHeader', 'connectionHeader'],
+		dialogTexts: {},
+
+    
+    //
+    // Constructor
+    //
+  	inti: function(){
+			this.reloadDialogTexts();
+			Kendo.bind($("#view"), this);
+		},
+
+
+		//
+		// Methods
+		//
+		reloadDialogTexts: function(){
+			this.set('dialogTexts', languageManager.getLanguageStrings(this.textArray));
+		},
+
+		//
+		// Eventhandlers
+		//
+		SettingsChanged: function(e){
+			this.settings.save();
+			this.reloadDialogTexts();
+		},
+
+
+	});
 
 	return {
+		
 		initialize: function(initEvt){
 
 		},

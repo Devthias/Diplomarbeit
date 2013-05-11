@@ -1,13 +1,13 @@
 <div data-role="view" id="history" data-init="app.views.history.initialize" data-before-show="app.views.history.beforeShow" data-show="app.views.history.show" data-model="app.views.history.viewModel">
-	<div data-role="header">
-		<div data-role="navbar">
+  <div data-role="header">
+    <div data-role="navbar">
         <a class="nav-button" data-role="backbutton" data-align="left">
-        	<label for="" data-bind="text: dialogTexts.backButton"></label>
+          <label for="" data-bind="text: dialogTexts.backButton"></label>
         </a>
         bridge4erp
-		</div>
+    </div>
   </div>
-		
+    
   <ul data-bind="source: dataSource" data-role="listview" data-template="inboxItem" class="inboxList"></ul>
 
   <ul data-role="actionsheet" id="inboxActions" data-open="onOpen" data-popup='{"direction": "left"}'>

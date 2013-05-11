@@ -43,12 +43,6 @@ define([
       return message;
     },
 
-    dateToWcfFormat: function(dateString) {
-      var date = new Date(dateString);
-      var parsedDate = '\/Date(' + date.getTime() + '-0000)\/';
-      return parsedDate;
-    },
-
   });
 
   return HalfFullDayAbsence;

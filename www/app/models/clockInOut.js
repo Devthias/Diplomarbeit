@@ -3,9 +3,8 @@
 define([
   'jquery',
   'kendo',
-  'models/booking',
   'helper'
-], function($, Kendo, Booking, Helper){
+], function($, Kendo, Helper){
 
   var ClockInOut = kendo.Class.extend({
 
@@ -40,12 +39,6 @@ define([
       console.log(entry.Time);
 
       return message;
-    },
-
-    dateToWcfFormat: function(dateString) {
-      var date = new Date(dateString);
-      var parsedDate = '\/Date(' + date.getTime() + '-0000)\/';
-      return parsedDate;
     },
 
   });

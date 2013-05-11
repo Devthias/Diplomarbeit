@@ -12,7 +12,7 @@ define([
 
 	IndexViewModel.prototype = Kendo.observable({});
 
-	IndexViewModel.prototype.textArray = ['clockInOut', 'clockInOutAbsence', 'absenceRange', 'absenceTime', 'absenceHalfFullDay', 'orderTime', 'orderPiece', 'orderExpenses', 'interruptMessage', 'interruptMessagePiece', 'finishedMessage', 'finishedMessagePiece', 'finishedMessageShouldBe', 'presenceAbsence', 'contractServices', 'orderProgress', 'backButton'];
+	IndexViewModel.prototype.textArray = ['clockInOut', 'clockInOutAbsence', 'absenceCorrection', 'absenceRange', 'absenceTime', 'halfFullDayAbsence', 'interruptMessage', 'timeCorrections', 'backButton', 'requests'];
 
 	IndexViewModel.prototype.dialogTexts = {};
 

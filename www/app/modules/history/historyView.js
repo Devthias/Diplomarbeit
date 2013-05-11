@@ -3,10 +3,51 @@
 define([
 	'jquery',
 	'kendo',
-	'../history/historyViewModel'
-], function($, Kendo, historyViewModel){
+	'persistenceManager'
+], function($, Kendo, PersistenceManager){
 
-	var _viewModel = new historyViewModel();
+	var _viewModel = Kendo.observable({
+
+		//
+		// Properties
+		//
+		textArray: ['absenceLabel','dateLabel', 'timeLabel', 'bookLabel', 'comeLeaveLabel', 'backButton'],
+		dialogTexts: {},
+		reloadDialogTexts: function(){
+			this.set('dialogTexts', languageManager.getLanguageStrings(this.textArray));
+		},
+		dataSource: new Kendo.data.DataSource({
+			transport: {
+				read: function(options) {
+		    	var request = {
+						model: 'clockInOut',
+						type: 'GET',
+		    	};
+		    	var persistenceManager = new PersistenceManager();
+		      persistenceManager.GETRequest(request, options.success);
+		    }
+			}
+		}),
+
+
+    // 
+    // Constructor
+    //
+		init: function(){
+			this.reloadDialogTexts();
+			this.selectedLanguage = localStorage.getItem('currentLanguage');
+			Kendo.bind($("#view"), this);
+		},
+
+
+		//
+		// Methods
+		//
+		reloadData: function(){
+			this.dataSource.read();
+		},
+
+  });
 
 	return {
 		initialize: function(initEvt){

@@ -1,13 +1,87 @@
 <div data-role="view" id="history" data-init="app.views.halfFullDayAbsence.initialize" data-before-show="app.views.halfFullDayAbsence.beforeShow" data-show="app.views.halfFullDayAbsence.show" data-model="app.views.halfFullDayAbsence.viewModel">
-	<div data-role="header">
-		<div data-role="navbar">
+  <div data-role="header">
+    <div data-role="navbar">
         <a class="nav-button" data-role="backbutton" data-align="left">
-        	<label for="" data-bind="text: dialogTexts.backButton"></label>
+          <label for="" data-bind="text: dialogTexts.backButton"></label>
         </a>
-        bridge4erp
-		</div>
+        <label for="" data-bind="text: dialogTexts.halfFullDayAbsence"></label>
+        <a class="nav-button" data-role="button" data-align="right" data-bind="click: sendBooking">
+          <label for="" data-bind="text: dialogTexts.bookLabel"></label>
+        </a>
+    </div>
   </div>
-		
-  <label for="" data-bind="text: dialogTexts.absenceRange"></label>
+
+  <ul data-role="listview" data-style="inset">
+    <li>
+      <label>
+        <label for="" data-bind="text: dialogTexts.employee"></label>
+        <select name="" id="absenceList" data-bind="value: model.PersonId">
+          <option value="1">
+            <label for="" data-bind="text: dialogTexts.morning"></label>
+          </option>
+          <option value="2">
+            <label for="" data-bind="text: dialogTexts.fullDay"></label>
+          </option>
+          <option value="3">
+            <label for="" data-bind="text: dialogTexts.afternoon"></label>
+          </option>
+        </select>
+      </label>
+    </li>
+    <li>
+      <label>
+        <label for="" data-bind="text: dialogTexts.dateFrom"></label>
+        <input id="dateFrom" type="date" data-bind="checked: model.DateFrom">
+      </label>
+    </li>
+    <li>
+      <label>
+        <label for="" data-bind="text: dialogTexts.dayPart"></label>
+        <select name="" id="absenceList" data-bind="value: model.DateFromType">
+          <option value="1">
+            <label for="" data-bind="text: dialogTexts.morning"></label>
+          </option>
+          <option value="2">
+            <label for="" data-bind="text: dialogTexts.fullDay"></label>
+          </option>
+          <option value="3">
+            <label for="" data-bind="text: dialogTexts.afternoon"></label>
+          </option>
+        </select>
+      </label>
+    </li>
+    <li>
+      <label>
+        <label for="" data-bind="text: dialogTexts.dateTo"></label>
+        <input id="dateFrom" type="date" data-bind="checked: model.DateTo">
+      </label>
+    </li>
+    <li>
+      <label>
+        <label for="" data-bind="text: dialogTexts.dayPart"></label>
+        <select name="" id="absenceList" data-bind="value: model.DateToType">
+          <option value="1">
+            <label for="" data-bind="text: dialogTexts.morning"></label>
+          </option>
+          <option value="2">
+            <label for="" data-bind="text: dialogTexts.fullDay"></label>
+          </option>
+          <option value="3">
+            <label for="" data-bind="text: dialogTexts.afternoon"></label>
+          </option>
+        </select>
+      </label>
+    </li>
+    <li>
+      <label>
+        <label for="" data-bind="text: dialogTexts.timeTypeLabel"></label>
+        <select name="" id="absenceList" data-bind="value: model.TimeType">
+          <option value="1">Ferien</option>
+          <option value="2">Krank</option>
+          <option value="3">Militär</option>
+        </select>
+      </label>
+    </li>
+  </ul>
 
 </div>

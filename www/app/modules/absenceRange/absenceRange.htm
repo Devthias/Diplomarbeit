@@ -1,10 +1,11 @@
-<div id="view" data-role="view" id="absenceTime" data-title="Settings" data-init="app.views.absenceTime.initialize" data-before-show="app.views.absenceTime.beforeShow" data-show="app.views.absenceTime.show" data-model="app.views.absenceTime.viewModel">
+<div id="view" data-role="view" id="absenceRange" data-title="Settings" data-init="app.views.absenceRange.initialize" data-before-show="app.views.absenceRange.beforeShow" data-show="app.views.absenceRange.show" data-model="app.views.absenceRange.viewModel">
+
 	<div data-role="header">
 		<div data-role="navbar">
-          <a class="nav-button" data-role="backbutton" data-align="left">
+        <a class="nav-button" data-role="backbutton" data-align="left">
         	<label for="" data-bind="text: dialogTexts.backButton"></label>
         </a>
-        <label for="" data-bind="text: dialogTexts.absenceTime"></label>
+        <label for="" data-bind="text: dialogTexts.absenceRange"></label>
         <a class="nav-button" data-role="button" data-align="right" data-bind="click: sendBooking">
         	<label for="" data-bind="text: dialogTexts.bookLabel"></label>
         </a>
@@ -37,18 +38,24 @@
 			</li>
 			<li>
 				<label>
+			    <label for="" data-bind="text: dialogTexts.timeFromLabel"></label>
+			    <input type="time" data-bind="value: model.TimeFrom">
+				</label>
+			</li>
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.timeToLabel"></label>
+			    <input type="time" data-bind="value: model.TimeTo">
+				</label>
+			</li>
+			<li>
+				<label>
 			    <label for="" data-bind="text: dialogTexts.timeTypeLabel"></label>
   				<select name="" id="absenceList" data-bind="value: model.TimeTypeNo">
 			    	<option value="de">Ferien</option>
 		        <option value="en">Krank</option>
 		        <option value="fr">Militär</option>
 			    </select>
-				</label>
-			</li>
-			<li>
-				<label>
-			    <label for="" data-bind="text: dialogTexts.timeAmountLabel"></label>
-			    <input type="time" data-bind="value: model.TimeAmount">
 				</label>
 			</li>
 		</ul>

@@ -5,39 +5,39 @@ define([
   'kendo',
   'helper',
   'languageManager',
-  'modules/absenceRegion/absenceRegionView',
+  'persistenceManager',
+  'modules/absenceRange/absenceRangeView',
   'modules/absenceTime/absenceTimeView',
   'modules/clockInOut/clockInOutView',
   'modules/halfFullDayAbsence/halfFullDayAbsenceView',
   'modules/history/historyView',
   'modules/index/indexView',
-  'modules/interruptMessagePiece/interruptMessagePieceView',
-  'modules/interruptMessage/interruptMessageView',
   'modules/navbar/navbarView',
-  'modules/orderExpenses/orderExpensesView',
-  'modules/orderPiece/orderPieceView',
-  'modules/orderTime/orderTimeView',
   'modules/settings/settingsView',
   'modules/settings/loginView',
-  'modules/absenceRegion/absenceRegionViewModel',
-  'modules/absenceTime/absenceTimeViewModel',
-  'modules/clockInOut/clockInOutViewModel',
-  'modules/halfFullDayAbsence/halfFullDayAbsenceViewModel',
-  'modules/history/historyViewModel',
-  'modules/index/indexViewModel',
-  'modules/interruptMessagePiece/interruptMessagePieceViewModel',
-  'modules/interruptMessage/interruptMessageViewModel',
-  'modules/navbar/navbarViewModel',
-  'modules/orderExpenses/orderExpensesViewModel',
-  'modules/orderPiece/orderPieceViewModel',
-  'modules/orderTime/orderTimeViewModel',
-  'modules/settings/settingsViewModel',
-  'modules/settings/loginViewModel',
-], function($, Kendo, helper, languageManager, absenceRegionView, absenceTimeView, clockInOutView, halfFullDayAbsenceView, historyView, indexView, interruptMessagePieceView, interruptMessageView, navbarView, orderExpensesView, orderPieceView, orderTimeView, settingsView, loginView, absenceRegionViewModel, absenceTimeViewModel, clockInOutViewModel, halfFullDayAbsenceViewModel, historyViewModel, indexViewModel, interruptMessagePieceViewModel, interruptMessageViewModel, navbarViewModel, orderExpensesViewModel, orderPieceViewModel, orderTimeViewModel, settingsViewModel, loginViewModel){
+  'models/loginInformation',
+], function($, Kendo, helper, languageManager, PersistenceManager, absenceRangeView, absenceTimeView, clockInOutView, halfFullDayAbsenceView, historyView, indexView, navbarView, settingsView, loginView, LoginInformation){
 
     var _app;
 
     return{
+
+      //
+      // Properties
+      //
+      loginInformation: new LoginInformation(),
+
+      isTablet: false,
+
+      serverStatus: 'online',
+
+      isLogedIn: false,
+
+
+
+      //
+      // Constructor
+      //
       initialize: function(){
 
         this.checkDeviceType();
@@ -55,17 +55,20 @@ define([
         if(firstRun === null && firstRun != false){
           //load default texts
           localStorage.setItem('FirstRun', false);
+          localStorage.setItem('LoginInformation', null);
 
           $.get('defaults/languageTexts.json', this.updateLanguageTexts);
         }
 
-        appElement.show();
-
-        if(this.isTablet) this.initializeTablet();
-        else this.initializePhone();
+        this.initializeApp();
 
       },
 
+
+
+      //
+      // Methods
+      //
       updateLanguageTexts: function(data){
         var languageTexts = $.parseJSON(data);
 
@@ -78,14 +81,31 @@ define([
 
       },
 
+      initializeApp: function(){
+        if(this.isTablet) this.initializeTablet();
+        else this.initializePhone();
+        appElement.show();
+        
+        var loginInformation = JSON.parse(localStorage.getItem('LoginInformation'));
+        console.log(loginInformation);
+        if(loginInformation === null || loginInformation.ServerUrl === null){
+          console.log('naviagte to login');
+          app.navigate('app/modules/settings/login.htm');
+        }
+        else{
+          this.login();
+        }
+        
+      },
+
       // Creates the Kendo app object
-      initializeApp: function(params){
+      instantiateKendoApp: function(params){
         _app = new Kendo.mobile.Application(appElement, params);
       },
 
       // Initializes the view for phones
       initializePhone: function(){
-        this.initializeApp({
+        this.instantiateKendoApp({
             loading: "Please wait...",
             layout: appLayout,
             transition: 'slide',
@@ -95,7 +115,7 @@ define([
 
       // Initializes the view for tablets
       initializeTablet: function(){
-        this.initializeApp({
+        this.instantiateKendoApp({
           loading: "Please wait...",
           layout: appLayout,
           transition: 'slide'
@@ -118,25 +138,71 @@ define([
           appLayout = null;
       },
 
-      isTablet: false,
+      navigate: function(url){
+        _app.navigate(url);
+      },
 
-      serverStatus: 'online',
+      login: function(e){
+        var request = {
+          data: this.loginInformation.getMessageObject(),
+          type: 'select',
+          model: 'login'
+        }
+        this.persistenceManager.POSTRequest(request, this.loginCompleted, this.loginFailed);
+      },
+
+      synchronize: function(){
+        console.log('start synchronize');
+      },
+
+      showLoadingIndicator: function(){
+        console.log('showLoading called');
+        _app.showLoading();
+      },
+
+      hideLoadingIndicator: function(){
+        console.log('hideLoading called');
+        _app.hideLoading();
+      },
+
+      //
+      // Eventhandler
+      //
+      loginCompleted: function(response){
+
+        if(response === true){
+          console.log('login erfolgreich');
+          $('#appFooter').show();
+          navigator.notification.alert('Login erfolgreich', this.notificationCallback, 'Erfolgreich', 'Ok');
+          app.navigate('app/modules/index/index.htm');
+        }
+        else{
+          $('#appFooter').hide();
+          app.navigate('app/modules/settings/login.htm');
+        }
+
+      },
+
+      loginFailed: function(response){
+        $('#appFooter').hide();
+        app.navigate('app/modules/settings/login.htm');
+      },
+
+
+
+
+      persistenceManager: new PersistenceManager(),
 
       views: {
         navbar: navbarView,
-        absenceRegion: absenceRegionView,
+        absenceRange: absenceRangeView,
         absenceTime: absenceTimeView,
         clockInOut: clockInOutView,
         halfFullDayAbsence: halfFullDayAbsenceView,
         history: historyView,
         index: indexView,
-        interruptMessagePiece: interruptMessagePieceView,
-        interruptMessage: interruptMessageView,
-        orderExpenses: orderExpensesView,
-        orderPiece: orderPieceView,
-        orderTime: orderTimeView,
         settings: settingsView,
-        login: loginView,
+        login: loginView
       },
 
       viewModels: {},

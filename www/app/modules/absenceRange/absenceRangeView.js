@@ -1,13 +1,13 @@
-// Filename: historyView.js
+// Filename: absenceRangeView.js
 
 define([
 	'jquery',
 	'kendo',
 	'languageManager',
 	'helper',
-	'models/halfFullDayAbsence',
+	'models/absenceRange',
 	'persistenceManager'
-], function($, Kendo, languageManager, Helper, HalfFullDayAbsence, PersistenceManager){
+], function($, Kendo, languageManager, Helper, AbsenceRange, PersistenceManager){
 
 	var _viewModel = Kendo.observable({
 
@@ -15,18 +15,20 @@ define([
 		// Properties
 		//
 		persistenceManager: new PersistenceManager(),
-		textArray: ['halfFullDayAbsence','halfFullDayAbsenceMessage', 'backButton', 'bookLabel', 'dateFrom', 'dateTo', 'dayPart', 'morning', 'fullDay', 'afternoon', 'timeTypeLabel'],
+		textArray: ['absenceRange','timeFromLabel','dateLabel', 'timeToLabel', 'bookLabel', 'absenceRange','timeTypeLabel', 'backButton', 'employee'],
+		model: new AbsenceRange(),
 		dialogTexts: {},
-		model: new HalfFullDayAbsence(),
 
 
 		//
 		// Constructor
 		//
 		init: function(){
+
 			this.reloadDialogTexts();
 			this.selectedLanguage = localStorage.getItem('currentLanguage');
-			Kendo.bind($("#view"), HalfFullDayAbsenceViewModel.prototype);
+			Kendo.bind($("#view"), this);
+
 		},
 
 
@@ -34,7 +36,9 @@ define([
 		// Methods
 		//
 		reloadDialogTexts: function(){
-			HalfFullDayAbsenceViewModel.prototype.set('dialogTexts', languageManager.getLanguageStrings(this.textArray));
+
+			this.set('dialogTexts', languageManager.getLanguageStrings(this.textArray));
+
 		},
 		sendBooking: function(e){
 
@@ -43,10 +47,10 @@ define([
 			var request = {
 				data: this.model.getMessageObject(),
 				type: 'insert',
-				model: 'halfFullDayAbsence'
+				model: 'absenceRange'
 			}
 			console.log(request);
-			this.persistenceManager.saveRequest(request, this.sendBookingCompleted);
+			this.persistenceManager.POSTRequest(request, this.sendBookingCompleted);
 
 		},
 
@@ -57,10 +61,12 @@ define([
 		sendBookingCompleted: function(response){
 
     	app.hideLoadingIndicator();
-			
+
 			console.log(response);
 			navigator.notification.alert('Buchung gespeichert', this.notificationCallback, 'Erfolgreich', 'Ok');
+
 		},
+
   });
 
 	return {

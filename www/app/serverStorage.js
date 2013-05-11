@@ -7,53 +7,58 @@ define([
   
 	function ServerStorage(){};
 
-	// Führt einen POST Request aus
-	ServerStorage.prototype.saveData = function(request, callback){
+	// Makes a POST call
+	ServerStorage.prototype.POSTData = function(request, callback, failedCallback){
 
-		// Die MessageFactory selektiert die korrekte URL
 		var messageFactory = new MessageFactory();
   	var url = messageFactory.getServiceUrl(request.model);
 
-  	console.log(url);
+  	var jsonData = JSON.stringify(request.data);
 
-  	// Aufruf des Webservices
+  	console.log('POSTData' + jsonData);
+
   	$.ajax({
       url: url,
       type: 'POST',
-			data: JSON.stringify(request.data),
+			data: jsonData,
 			contentType: "application/json",
       crossDomain: true,
 			success: function (result) {
-				console.log("POST result: " + JSON.stringify(result));
+				console.log('result ' + result);
+				callback(result);
 			},
 			error: function(responseData, textStatus, jqXHR) {
-				console.log(jqXHR);
+				console.log('error ' + jqXHR);
+				failedCallback(responseData, textStatus, jqXHR);
 			}
     });
+
 	};
 
-	// Führt einen GET Request aus
-	ServerStorage.prototype.readData = function(request, callback){
+	// Makes a GET call
+	ServerStorage.prototype.GETData = function(request, callback, failedCallback){
 
 		var messageFactory = new MessageFactory();
 		var url = messageFactory.getServiceUrl(request.model);
 
-		console.log('get url: ' + url);
-
 		$.ajax({
 			url: url,
 			type: 'GET',
-			dataType: 'jsonp',
-			jsonp: false,
-			jsonpCallback: request.callback,
-			success: callback,
+			contentType: "application/json",
+			data: JSON.stringify(request.data),
+      crossDomain: true,
+			success: function (result) {
+				callback(result);
+			},
+			error: function(responseData, textStatus, jqXHR) {
+				failedCallback(responseData, textStatus, jqXHR);
+			}
+		});
 
-		})
-		.fail(this.errorHandler);
 	};
 
-	// Führt einen PUT Request aus
-	ServerStorage.prototype.updateData = function(request, callback){
+	// Makes a PUT call
+	ServerStorage.prototype.PUTData = function(request, callback, failedCallback){
 
 		var messageFactory = new MessageFactory();
 		var url = messageFactory.getServiceUrl(request.model);
@@ -63,13 +68,17 @@ define([
 			type: 'PUT',
 			dataType: 'jsonp',
 			jsonp: false,
-			jsonpCallback: request.callback
-		}).done(callback)
-		.fail(this.errorHandler);
+			success: function (result) {
+				callback(result);
+			},
+			error: function(responseData, textStatus, jqXHR) {
+				failedCallback(responseData, textStatus, jqXHR);
+			}
+		});
 	};
 
-	// Führt einen DELETE Request aus
-	ServerStorage.prototype.deleteData =  function(request, callback){
+	// Makes a DELETE call
+	ServerStorage.prototype.DELETEData =  function(request, callback, failedCallback){
 
 		var messageFactory = new MessageFactory();
 		var url = messageFactory.getServiceUrl(request.model);
@@ -79,9 +88,13 @@ define([
 			type: 'DELETE',
 			dataType: 'jsonp',
 			jsonp: false,
-			jsonpCallback: request.callback
-		}).done(callback)
-		.fail(this.errorHandler);
+			success: function (result) {
+				callback(result);
+			},
+			error: function(responseData, textStatus, jqXHR) {
+				failedCallback(responseData, textStatus, jqXHR);
+			}
+		});
 	};
 
   return ServerStorage;

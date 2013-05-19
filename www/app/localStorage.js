@@ -27,11 +27,35 @@ define([
     };
 
     LocalStorage.prototype.createTables = function(){
+        console.log('create Tables');
         this.db.transaction(
             function(transaction){
-                transaction.executeSql('CREATE TABLE IF NOT EXISTS tblClockInOut(Id, BookingDate, BookingTime, Absence, TimeType, Comment)');
+                transaction.executeSql(
+                    'CREATE TABLE IF NOT EXISTS tblClockInOut(Id, BookingDate, BookingTime, Absence, TimeType, Comment)');
             }
         );
+
+        this.db.transaction(
+            function(transaction){
+                transaction.executeSql(
+                    'CREATE TABLE IF NOT EXISTS tblAbsenceRange(Id, PersonId, TimeFrom, TimeTo, Date, TimeTypeNo, Comment)');
+            }
+        );
+
+        this.db.transaction(
+            function(transaction){
+                transaction.executeSql(
+                    'CREATE TABLE IF NOT EXISTS tblAbsenceTime(Id, PersonId, TimeAmount, Date, TimeTypeNo, Comment)');
+            }
+        );
+
+        this.db.transaction(
+            function(transaction){
+                transaction.executeSql(
+                    'CREATE TABLE IF NOT EXISTS tblHalfFullDayAbsence(Id, PersonId, DateFrom, DateTo, DateFromType, DateToType, DateToType, TimeTypeNo, Comment)');
+            }
+        );
+   
     };
 
     LocalStorage.prototype.POSTData = function(request, callback){

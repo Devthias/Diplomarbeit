@@ -1,0 +1,28 @@
+<div data-role="view" id="absences" data-init="app.views.absences.initialize" data-before-show="app.views.absences.beforeShow" data-show="app.views.absences.show" data-model="app.views.absences.viewModel">
+  <div data-role="header">
+    <div data-role="navbar">
+        <a class="nav-button" data-role="backbutton" data-align="left">
+          <label for="" data-bind="text: dialogTexts.backButton"></label>
+        </a>
+        <label for="" data-bind="text: dialogTexts.absences"></label>
+    </div>
+  </div>
+    
+  <ul data-bind="source: dataSource" data-role="listview" data-template="inboxItem" class="inboxList"></ul>
+
+  <ul data-role="actionsheet" id="inboxActions" data-open="onOpen" data-popup='{"direction": "left"}'>
+      <li><a href="#" data-action="open">Open</a></li>
+      <li><a href="#" data-action="delete">Delete</a></li>
+  </ul>
+
+  <script type="script/x-kendo-template" id="inboxItem">
+    <h3 class="time">#: BookingDate#</h3><h3>#: BookingTime #</h3>
+    <a class="bookingItem"
+        data-role="button"
+        data-rel="actionsheet"
+        href="\\#inboxActions"
+        data-actionsheet-context="#:Id#">Open</a>
+    <h2>#: Comment#</h2>
+  </script>
+
+</div>

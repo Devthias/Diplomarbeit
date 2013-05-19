@@ -7,8 +7,8 @@
     <div data-role="header">
         <div data-role="navbar">
             RunTime 
-            <a class="nav-button" data-role="button" data-align="right" data-bind="click: sendBooking">
-                <label for="" data-bind="text: dialogTexts.clockInOut"></label>
+            <a id="startStopButton" class="nav-button" data-role="button" data-align="right" data-bind="click: sendBooking" style="display:none">
+                <label for="" data-bind="text: dialogTexts.startStop"></label>
             </a>
         </div>
     </div>
@@ -26,10 +26,16 @@
         <label for="contractServices" data-bind="text: dialogTexts.timeData"></label>
     	<li id="contractServices">
     		<ul>
-		    	<li><a href="app/modules/orderTime/orderTime.htm" data-bind="text: dialogTexts.orderTime" data-target="main-pane"></a></li>
-		    	<li><a href="app/modules/orderPiece/orderPiece.htm" data-bind="text: dialogTexts.orderPiece" data-target="main-pane"></a></li>
-		    	<li><a href="app/modules/orderExpenses/orderExpenses.htm" data-bind="text: dialogTexts.orderExpenses" data-target="main-pane"></a></li>
+		    	<li><a href="app/modules/worktime/worktime.htm" data-bind="text: dialogTexts.worktime" data-target="main-pane"></a></li>
+		    	<li><a href="app/modules/absences/absences.htm" data-bind="text: dialogTexts.absences" data-target="main-pane"></a></li>
     		</ul>
     	</li>
+        <label for="contractServices" data-bind="text: dialogTexts.settings"></label>
+        <li id="contractServices">
+            <ul>
+                <li><a href="app/modules/synchronization/synchronization.htm" data-bind="text: dialogTexts.synchronisationLabel" data-target="main-pane"></a></li>
+                <li><a href="app/modules/settings/settings.htm" data-bind="text: dialogTexts.settings" data-target="main-pane"></a></li>
+            </ul>
+        </li>
     </ul>
 </div>

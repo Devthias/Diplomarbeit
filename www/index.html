@@ -36,10 +36,10 @@
                 
               </div>
             </div>
-            <div data-role="footer">
+            <div id="appFooterTablet" data-role="footer">
               <div data-role="tabstrip">
-                <a href="app/modules/history/history.htm" data-icon="recents" data-bind="text: history"></a>
-                <a href="" data-icon="refresh" data-bind="text: synchronization"></a>
+                <a href="app/modules/worktime/worktime.htm" data-icon="recents" data-bind="text: history"></a>
+                <a href="app/modules/synchronization/synchronization.htm" data-icon="refresh" data-bind="text: synchronization"></a>
                 <a href="app/modules/settings/settings.htm" data-icon="settings" data-bind="text: settings"></a>
               </div>
             </div>
@@ -50,18 +50,18 @@
     <div id="phoneApp" id="main-pane" style="display:none;">
       <div data-role="view">
       </div>
-      <div data-role="layout" data-id="phoneDefault" data-model="app.views.application.viewModel">
+      <div data-role="layout" data-id="phoneDefault">
         <div data-role="header">
           <div data-role="navbar">
             
           </div>                       
         </div>
         <!--Content--> 
-        <div id="appFooter" data-role="footer" style="display: none">
+        <div id="appFooterPhone" data-role="footer">
           <div data-role="tabstrip">
             <a href="app/modules/index/index.htm" data-icon="home" data-bind="text: functions"></a>
-            <a href="app/modules/history/history.htm" data-icon="recents" data-bind="text: history"></a>
-            <a href="" data-icon="refresh" data-bind="text: synchronization"></a>
+            <a href="app/modules/worktime/worktime.htm" data-icon="recents" data-bind="text: history"></a>
+            <a href="app/modules/synchronization/synchronization.htm" data-icon="refresh" data-bind="text: synchronization"></a>
             <a href="app/modules/settings/settings.htm" data-icon="settings" data-bind="text: settings"></a>
           </div>
         </div>

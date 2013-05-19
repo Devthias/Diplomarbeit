@@ -4,10 +4,9 @@ define([
 	'jquery',
 	'kendo',
 	'languageManager',
-	'helper',
 	'models/absenceRange',
 	'persistenceManager'
-], function($, Kendo, languageManager, Helper, AbsenceRange, PersistenceManager){
+], function($, Kendo, languageManager, AbsenceRange, PersistenceManager){
 
 	var _viewModel = Kendo.observable({
 
@@ -46,7 +45,7 @@ define([
 
 			var request = {
 				data: this.model.getMessageObject(),
-				type: 'insert',
+				type: 'POST',
 				model: 'absenceRange'
 			}
 			console.log(request);

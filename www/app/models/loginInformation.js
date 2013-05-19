@@ -12,8 +12,13 @@ define([
     // Properties
     //
     ServerUrl: "",
-    User: "",
+    Username: "",
     Password: "",
+    UserID: 0,
+    Prename: "",
+    Lastname: "",
+    Email: "",
+    HasLoggedIn: false,
 
     // 
     // Constructor
@@ -23,10 +28,14 @@ define([
 
       if(loginInformation === null) return;
       this.ServerUrl = loginInformation.ServerUrl;
-      this.User = loginInformation.User;
+      this.Username = loginInformation.Username;
       this.Password = loginInformation.Password;
+      this.UserID =  loginInformation.UserID;
+      this.Prename = loginInformation.Prename;
+      this.Lastname = loginInformation.Lastname;
+      this.Email = loginInformation.Email;
+      this.HasLoggedIn = loginInformation.HasLoggedIn;
 
-      console.log(this);
     },
 
     //
@@ -35,20 +44,30 @@ define([
     save: function(){
       var loginInformation = new Object();
 
+      console.log(this.Prename);
+      console.log(this.Lastname);
+
       loginInformation.ServerUrl = this.ServerUrl;
-      loginInformation.User = this.User;
+      loginInformation.Username = this.Username;
       loginInformation.Password = this.Password;
+      loginInformation.UserID = this.UserID;
+      loginInformation.Prename = this.Prename;
+      loginInformation.Lastname = this.Lastname;
+      loginInformation.Email = this.Email;
+      loginInformation.HasLoggedIn = this.HasLoggedIn;
 
       localStorage.setItem('LoginInformation', JSON.stringify(loginInformation));
     },
 
     getMessageObject: function(){
 
-      var message = new Object();
-      message.username = this.User;
-      message.password = this.Password;
+      var userEntry = new Object();
+      userEntry.username = this.Username;
+      userEntry.password = this.Password;
 
-      return message;
+      console.log(userEntry);
+
+      return userEntry;
     },
 
   });

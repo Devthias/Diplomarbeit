@@ -6,6 +6,12 @@
         "fr": "",
         "it": ""
     },
+    "startStop": {
+        "de": "Start / Stop",
+        "en": "Start / Stop",
+        "fr": "",
+        "it": ""
+    },
     "clockInOut": {
         "de": "Kommen / Gehen",
         "en": "Clock in / out",
@@ -101,8 +107,19 @@
         "en": "Synchronisation",
         "fr": "",
         "it": ""
-    }
-    ,
+    },
+    "synchronizeButton": {
+        "de": "Synchronisieren",
+        "en": "Synchronisation",
+        "fr": "",
+        "it": ""
+    },
+    "worktime": {
+        "de": "Arbeitszeiten",
+        "en": "Workingtime",
+        "fr": "",
+        "it": ""
+    },
     "home": {
         "de": "Home",
         "en": "Home",
@@ -210,6 +227,55 @@
         "en": "Terminal",
         "fr": "",
         "it": ""
-    }
+    },
+    "absences":{
+        "de": "Abwesenheiten",
+        "en": "Absences",
+        "fr": "",
+        "it": ""
+    },
+    "connect":{
+        "de": "Verbinden",
+        "en": "Connect",
+        "fr": "",
+        "it": ""
+    },
+    "login": {
+        "de": "Login",
+        "en": "Login",
+        "fr": "",
+        "it": ""
+    },
+    "loginHeader": {
+        "de": "Login",
+        "en": "Login",
+        "fr": "",
+        "it": ""
+    },
+    "connectionHeader": {
+        "de": "Verbindung",
+        "en": "Connection",
+        "fr": "",
+        "it": ""
+    },
+    "portLabel": {
+        "de": "Port",
+        "en": "Port",
+        "fr": "",
+        "it": ""
+    },
+    "workOfflineLabel": {
+        "de": "Offline arbeiten",
+        "en": "Work offline",
+        "fr": "",
+        "it": ""
+    },
+    "offlineModeText": {
+        "de": "Offline Modus",
+        "en": "Offline mode",
+        "fr": "",
+        "it": ""
+    } 
+
   }
 }

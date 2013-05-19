@@ -15,7 +15,7 @@ define([
 
   	var jsonData = JSON.stringify(request.data);
 
-  	console.log('POSTData' + jsonData);
+  	console.log(jsonData);
 
   	$.ajax({
       url: url,
@@ -23,12 +23,11 @@ define([
 			data: jsonData,
 			contentType: "application/json",
       crossDomain: true,
+      timeout: 1000,
 			success: function (result) {
-				console.log('result ' + result);
 				callback(result);
 			},
 			error: function(responseData, textStatus, jqXHR) {
-				console.log('error ' + jqXHR);
 				failedCallback(responseData, textStatus, jqXHR);
 			}
     });
@@ -47,6 +46,7 @@ define([
 			contentType: "application/json",
 			data: JSON.stringify(request.data),
       crossDomain: true,
+      timeout: 1000,
 			success: function (result) {
 				callback(result);
 			},

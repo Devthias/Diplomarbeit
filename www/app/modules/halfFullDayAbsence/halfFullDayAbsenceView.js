@@ -4,10 +4,9 @@ define([
 	'jquery',
 	'kendo',
 	'languageManager',
-	'helper',
 	'models/halfFullDayAbsence',
 	'persistenceManager'
-], function($, Kendo, languageManager, Helper, HalfFullDayAbsence, PersistenceManager){
+], function($, Kendo, languageManager, HalfFullDayAbsence, PersistenceManager){
 
 	var _viewModel = Kendo.observable({
 
@@ -26,7 +25,7 @@ define([
 		init: function(){
 			this.reloadDialogTexts();
 			this.selectedLanguage = localStorage.getItem('currentLanguage');
-			Kendo.bind($("#view"), HalfFullDayAbsenceViewModel.prototype);
+			Kendo.bind($("#view"), this);
 		},
 
 
@@ -34,7 +33,7 @@ define([
 		// Methods
 		//
 		reloadDialogTexts: function(){
-			HalfFullDayAbsenceViewModel.prototype.set('dialogTexts', languageManager.getLanguageStrings(this.textArray));
+			this.set('dialogTexts', languageManager.getLanguageStrings(this.textArray));
 		},
 		sendBooking: function(e){
 
@@ -42,11 +41,11 @@ define([
 
 			var request = {
 				data: this.model.getMessageObject(),
-				type: 'insert',
+				type: 'POST',
 				model: 'halfFullDayAbsence'
 			}
 			console.log(request);
-			this.persistenceManager.saveRequest(request, this.sendBookingCompleted);
+			this.persistenceManager.POSTRequest(request, this.sendBookingCompleted);
 
 		},
 

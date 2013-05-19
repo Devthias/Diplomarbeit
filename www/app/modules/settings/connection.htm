@@ -1,0 +1,57 @@
+<div data-role="view" id="connection" data-init="app.views.connection.initialize" data-before-show="app.views.connection.beforeShow" data-show="app.views.connection.show" data-model="app.views.connection.viewModel">
+	<div data-role="header">
+		<div data-role="navbar">
+        <label for="" data-bind="text: dialogTexts.connectionHeader"></label>
+        <a class="nav-button" data-role="button" data-align="right" data-bind="click: connect">
+        	<label for="" data-bind="text: dialogTexts.connect"></label>
+        </a>
+		</div>
+  </div>
+	
+	<form action="">
+
+		<ul data-role="listview" data-style="inset">
+
+			<li>
+				<label>
+			    <label for="" data-bind="text: dialogTexts.serverLabel"></label>
+			    <input type="text" data-bind="value: connectionInformation.ServerUrl, events: { change: serverUrlChanged}">
+				</label>
+			</li>
+
+		</ul>
+
+	</form>
+
+	<div id="appFooterPhone" data-role="footer" style="display: none">
+    <div data-role="tabstrip">
+
+    </div>
+  </div>
+
+	<div data-role="modalview" id="offline-login" style="width: 95%; height: 10em;">
+		<div data-role="header">
+			<div data-role="navbar">
+          <span><label for="" data-bind="text: dialogTexts.offlineModeText"></label></span>
+          <a data-click="closeModalView" data-role="button" data-align="right">Cancel</a>
+      </div>
+		</div>
+		<div>
+			<label for=""></label>
+			<p>
+				Der Server ist nicht erreichbar. Wollen sie Offline arbeiten?
+			</p>
+			<a class="nav-button" data-role="button" data-align="right" data-bind="click: workOffline" style="display: block; margin-left: 5px; margin-right: 5px; bottom: 5px">
+	    	<label for="" data-bind="text: dialogTexts.workOfflineLabel"></label>
+	    </a>
+		</div>
+    <script>
+
+			function closeModalView(){
+				$("#offline-login").kendoMobileModalView("close");
+			}
+
+    </script>
+	</div>
+
+</div>

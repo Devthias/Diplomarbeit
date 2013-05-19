@@ -2,8 +2,10 @@
 
 define([
   'jquery',
-  'kendo'
-], function($, Kendo){
+  'kendo',
+  'models/booking',
+  'helper'
+], function($, Kendo, Booking, Helper){
 
   var HalfFullDayAbsence = kendo.Class.extend({
 

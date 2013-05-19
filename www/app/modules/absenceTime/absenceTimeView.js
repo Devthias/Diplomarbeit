@@ -6,7 +6,7 @@ define([
 	'languageManager',
 	'persistenceManager',
 	'models/absenceTime',
-], function($, Kendo, languageManager, AbsenceTime, PersistenceManager){
+], function($, Kendo, languageManager, PersistenceManager, AbsenceTime){
 
 	var _viewModel = Kendo.observable({
 
@@ -41,7 +41,7 @@ define([
 
 			var request = {
 				data: this.model.getMessageObject(),
-				type: 'insert',
+				type: 'POST',
 				model: 'absenceTime'
 			}
 			console.log(request);

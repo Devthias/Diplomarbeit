@@ -6,7 +6,8 @@ define([
 	'languageManager',
 	'persistenceManager',
 	'models/loginInformation',
-], function($, Kendo, LanguageManager, PersistenceManager, LoginInformation){
+	'models/connectionInformation'
+], function($, Kendo, LanguageManager, PersistenceManager, LoginInformation, ConnectionInformation){
 
 	var _viewModel = Kendo.observable({
 
@@ -17,6 +18,7 @@ define([
     dialogTexts: {},
     persistenceManager: new PersistenceManager(),
     loginInformation: new LoginInformation(),
+    connectionInformation: new ConnectionInformation(),
 
 
     // 
@@ -24,6 +26,7 @@ define([
     //
     init: function(){
 
+  		this.set('connectionInformation', new ConnectionInformation());
 			this.reloadDialogTexts();
 			this.selectedLanguage = localStorage.getItem('currentLanguage');
 			Kendo.bind($("#view"), this);
@@ -46,50 +49,52 @@ define([
 			var request = {
 				data: this.loginInformation.getMessageObject(),
 				type: 'POST',
-				model: 'login'
+				model: 'login',
+				mode: 'online'
 			}
 
 			var viewModel = this;
 			this.persistenceManager.POSTRequest(request, viewModel.loginCompleted, viewModel.loginFailed);
 
 		},
-    getMessageObject: function(){
-
-      var message = new Object();
-      message.User = this.User;
-      message.Password = this.Password;
-
-      return message;
-
-    },
 
 
 		//
-		// Eventhandler
+		// Eventhandlers
 		//
-		serverUrlChanged: function(e){
-			this.loginInformation.save();
-		},
-
 		loginCompleted: function(response){
 
 			app.hideLoadingIndicator();
 
-			if(response === true){
+			if(response.HasLoggedIn === true){
+
+				_viewModel.loginInformation.UserID = response.ID;
+				_viewModel.loginInformation.Username = response.Username;
+				_viewModel.loginInformation.Prename = response.Prename;
+				_viewModel.loginInformation.Lastname = response.Lastname;
+				_viewModel.loginInformation.Email = response.Email;
+				_viewModel.loginInformation.HasLoggedIn = response.HasLoggedIn;
 				_viewModel.loginInformation.save();
+
 				//navigator.notification.alert('Login erfolgreich', this.notificationCallback, 'Erfolgreich', 'Ok');
-				app.navigate('app/modules/index/index.htm');
+				app.showNavigation();
+				app.navigateToStart();
+
 			}
 			else{
-				$('#appFooter').hide();
-				navigator.notification.alert('Login fehlgeschlagen', this.notificationCallback, 'Fehlgeschlagen', 'Ok');
+
+				app.hideNavigation();
+				//navigator.notification.alert('Login fehlgeschlagen', this.notificationCallback, 'Fehlgeschlagen', 'Ok');
+
 			}
-			$('#appFooter').show();
 
 		},
+
 		loginFailed: function(response){
 
-			$('#appFooter').hide();
+			app.hideLoadingIndicator();
+
+			app.hideNavigation();
 			navigator.notification.alert('Login fehlgeschlagen', this.notificationCallback, 'Fehlgeschlagen', 'Ok');
 			
 		},

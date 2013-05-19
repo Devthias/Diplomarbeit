@@ -1,0 +1,162 @@
+<div data-role="view" id="synchronization" data-init="app.views.synchronization.initialize" data-before-show="app.views.synchronization.beforeShow" data-show="app.views.synchronization.show" data-model="app.views.synchronization.viewModel">
+  <div data-role="header">
+    <div data-role="navbar">
+        <a class="nav-button" data-role="backbutton" data-align="left">
+          <label for="" data-bind="text: dialogTexts.backButton"></label>
+        </a>
+        <label for="" data-bind="text: dialogTexts.synchronisationLabel"></label>
+        <a class="nav-button" data-role="button" data-align="right" data-bind="click: synchronize">
+          <label for="" data-bind="text: dialogTexts.synchronizeButton"></label>
+        </a>
+    </div>
+  </div>
+
+
+    <div id="scrollview-container">
+      <div data-role="scrollview" data-page="2">
+        <div data-role="page">
+          <!-- Kommen Gehen -->
+          <label for="" data-bind="text: dialogTexts.clockInOut"></label>
+          <ul data-bind="source: clockInOutDataSource" data-role="listview" data-template="inboxItem" class="inboxList"></ul>
+
+          <ul data-role="actionsheet" id="inboxActions" data-open="onOpen" data-popup='{"direction": "left"}'>
+            <li><a href="#" data-action="open">Open</a></li>
+            <li><a href="#" data-action="delete">Delete</a></li>
+          </ul>
+
+          <script type="script/x-kendo-template" id="inboxItem">
+            <h3 class="time">#: BookingDate#</h3><h3>#: BookingTime #</h3>
+            <a class="bookingItem"
+                data-role="button"
+                data-rel="actionsheet"
+                href="\\#inboxActions"
+                data-actionsheet-context="#:Id#">Open</a>
+            <h2>#: Comment#</h2>
+          </script>
+
+        </div>
+        <div data-role="page">
+          <!-- Abwesenheitsbereich -->
+          <label for="" data-bind="text: dialogTexts.absenceRange"></label>
+          <ul data-bind="source: absenceRangeDataSource" data-role="listview" data-template="inboxItem" class="inboxList"></ul>
+
+          <ul data-role="actionsheet" id="inboxActions" data-open="onOpen" data-popup='{"direction": "left"}'>
+            <li><a href="#" data-action="open">Open</a></li>
+            <li><a href="#" data-action="delete">Delete</a></li>
+          </ul>
+
+          <script type="script/x-kendo-template" id="inboxItem">
+            <h3 class="time">#: BookingDate#</h3><h3>#: BookingTime #</h3>
+            <a class="bookingItem"
+                data-role="button"
+                data-rel="actionsheet"
+                href="\\#inboxActions"
+                data-actionsheet-context="#:Id#">Open</a>
+            <h2>#: Comment#</h2>
+          </script>
+
+        </div>
+        <div data-role="page">
+          <!-- Abwesenheitszeit -->
+          <label for="" data-bind="text: dialogTexts.absenceTime"></label>
+          <ul data-bind="source: absenceTimeDataSource" data-role="listview" data-template="inboxItem" class="inboxList"></ul>
+
+          <ul data-role="actionsheet" id="inboxActions" data-open="onOpen" data-popup='{"direction": "left"}'>
+            <li><a href="#" data-action="open">Open</a></li>
+            <li><a href="#" data-action="delete">Delete</a></li>
+          </ul>
+
+          <script type="script/x-kendo-template" id="inboxItem">
+            <h3 class="time">#: BookingDate#</h3><h3>#: BookingTime #</h3>
+            <a class="bookingItem"
+                data-role="button"
+                data-rel="actionsheet"
+                href="\\#inboxActions"
+                data-actionsheet-context="#:Id#">Open</a>
+            <h2>#: Comment#</h2>
+          </script>
+
+        </div>
+        <div data-role="page">
+          <!-- Ganz- und halbtägige Abwesenheiten -->
+          <label for="" data-bind="text: dialogTexts.halfFullDayAbsence"></label>
+          <ul data-bind="source: halfFullDayAbsenceDataSource" data-role="listview" data-template="inboxItem" class="inboxList"></ul>
+
+          <ul data-role="actionsheet" id="inboxActions" data-open="onOpen" data-popup='{"direction": "left"}'>
+            <li><a href="#" data-action="open">Open</a></li>
+            <li><a href="#" data-action="delete">Delete</a></li>
+          </ul>
+
+          <script type="script/x-kendo-template" id="inboxItem">
+            <h3 class="time">#: BookingDate#</h3><h3>#: BookingTime #</h3>
+            <a class="bookingItem"
+                data-role="button"
+                data-rel="actionsheet"
+                href="\\#inboxActions"
+                data-actionsheet-context="#:Id#">Open</a>
+            <h2>#: Comment#</h2>
+          </script>
+
+        </div>
+      </div>
+    </div>
+
+
+<style>
+    #scrollview-home .photo {
+        margin: 0;
+        height: 400px;
+        -webkit-background-size: auto 100%;
+        background-size: auto 100%;
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+
+    .km-wp #scrollview-home .photo {
+        height: 400px;
+    }
+
+    #scrollview-container {
+        margin: 10px 0 1em 0;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        height: 100%;
+        background: rgba(0,0,0,.1);
+        border: 1px solid rgba(0,0,0,.3);
+        border-width: 1px 0;
+        box-shadow: 0 1px 1px rgba(255,255,255,.3);
+    }
+
+    .km-ios #scrollview-container {
+        box-shadow: 0 0 2px rgba(255,255,255,.5), inset 0 0 7px #000;
+    }
+
+    .km-ios #scrollview-home .km-navbar {
+        background: -webkit-gradient(linear, 50% 0, 50% 100%, color-stop(0, rgba(255,255,255,.5)), color-stop(.06, rgba(255,255,255,.45)), color-stop(.5, rgba(255,255,255,.2)), color-stop(.5, rgba(255,255,255,.15)), color-stop(1, rgba(100,100,100,0))), url(../../content/shared/images/patterns/pattern5.png);
+        background: -moz-linear-gradient(top, rgba(255,255,255,.5), rgba(255,255,255,.45) 6%, rgba(255,255,255,.2) 50%, rgba(255,255,255,.15) 50%, rgba(100,100,100,0)), url(../../content/shared/images/patterns/pattern5.png);
+  }
+    .km-ios #scrollview-home .km-navbar .km-button
+    {
+        background-color: #000;
+    }
+  .km-ios #scrollview-home .km-content {
+        background: url(../../content/shared/images/patterns/pattern6.png);
+        box-shadow: inset 0 0 30px #000;
+  }
+
+  .km-ios #scrollview-container .km-pages .km-current-page {
+    background-color: #ff009c;
+  }
+  .km-ios #scrollview-container .km-pages {
+    padding-top: 18px;
+  }
+    .km-ios #scrollview-home .km-view-title
+    {
+        color: #fff;
+        text-shadow: 0 -1px rgba(0,0,0,.5);
+    }
+</style>
+
+
+
+</div>

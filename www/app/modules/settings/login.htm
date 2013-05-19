@@ -11,20 +11,11 @@
 	<form action="">
 
 		<ul data-role="listview" data-style="inset">
-
-			<li>
-				<label>
-			    <label for="" data-bind="text: dialogTexts.serverLabel"></label>
-			    <input type="text" data-bind="value: loginInformation.ServerUrl, events: { change: serverUrlChanged}">
-				</label>
-			</li>
-
-		</ul>
-		<ul data-role="listview" data-style="inset">
+			
 			<li>
 				<label>
 			    <label for="" data-bind="text: dialogTexts.userLabel"></label>
-			    <input type="text" data-bind="value: loginInformation.User, events: { change: LoginInformationChanged}">
+			    <input type="text" data-bind="value: loginInformation.Username, events: { change: LoginInformationChanged}">
 				</label>
 			</li>
 
@@ -37,5 +28,11 @@
 		</ul>
 
 	</form>
+
+	<div id="appFooterPhone" data-role="footer" style="display: none">
+    <div data-role="tabstrip">
+
+    </div>
+  </div>
 
 </div>

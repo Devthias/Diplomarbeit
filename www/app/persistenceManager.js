@@ -35,9 +35,8 @@ define([
   // Creates a store object, depending on serverStatus of the app object
   PersistenceManager.prototype.getPersistanceStrategy = function(mode){
 
-    console.log(mode);
-
     if(mode !== undefined && mode === 'online') return new serverStorage();
+    if(mode !== undefined && mode === 'offline') return new localStorage();
 
     var status = app.serverStatus;
 

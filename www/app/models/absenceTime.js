@@ -35,7 +35,7 @@ define([
       entry.TimeAmount = this.TimeAmount;
       var message = new Object();
       message.userid = 104;
-      message.entry = entry;
+      message.entries = [entry];
 
       console.log(entry.Time);
 

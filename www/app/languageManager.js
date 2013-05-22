@@ -6,7 +6,7 @@ define([
 
 	function LanguageManager(){};
 
-	LanguageManager.prototype.getLanguageString = function(stringName){
+	LanguageManager.getLanguageString = function(stringName){
 		var languageString;
 		var languageObject;
 

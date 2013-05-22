@@ -68,6 +68,13 @@ define([
 		},
 
 		beforeShow: function(beforeShowEvt){
+
+			$('.morningLabel').each(function(){
+				$(this).text(languageManager.getLanguageString('morning'));
+			});
+			$('.fullDayLabel').text(languageManager.getLanguageString('fullDay'));
+			$('.afternoonLabel').text(languageManager.getLanguageString('afternoon'));
+
 			if(_viewModel !== undefined)
 				_viewModel.reloadDialogTexts();
 		},

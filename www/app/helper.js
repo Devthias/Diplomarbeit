@@ -22,7 +22,9 @@ define([
 
     // Konvertiert ein Datum vom Typ Kendo.Date zu einem String, der durch den WCF Serializer verstanden wird
     var dateToWcfFormat = function(dateString) {
+    console.log(dateString);
       var date = new Date(dateString);
+      console.log(date);
       var parsedDate = '\/Date(' + date.getTime() + '-0000)\/';
       return parsedDate;
     };

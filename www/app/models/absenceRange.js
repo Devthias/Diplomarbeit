@@ -28,15 +28,15 @@ define([
 
       var entry = new Object();
       entry.PersonId = this.PersonId;
-      entry.TimeFrom = Helper.dateToWcfFormat(kendo.toString(kendo.parseDate(this.TimeFrom)));
-      entry.TimeTo = Helper.dateToWcfFormat(kendo.toString(kendo.parseDate(this.TimeTo)));
+      entry.TimeFrom = Helper.dateToWcfFormat(kendo.toString(kendo.parseDate(this.Date + this.TimeFrom)));
+      entry.TimeTo = Helper.dateToWcfFormat(kendo.toString(kendo.parseDate(this.Date + this.TimeTo)));
       entry.Date = Helper.dateToWcfFormat(kendo.toString(kendo.parseDate(this.Date)));
       entry.TimeTypeNo = this.TimeTypeNo;
       entry.Comment = this.Comment;
 
       var message = new Object();
       message.userid = 104;
-      message.entry = entry;
+      message.entries = [entry];
 
       console.log(entry.Time);
 

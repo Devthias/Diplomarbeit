@@ -7,32 +7,37 @@ define([
 
 	function QueryBuilder(){};
 
-	// Kommen / Gehen Queries
+	// Clock In Out Queries
 	QueryBuilder.prototype.clockInOut = {
 		'POST': function(model){
 
+			var data = model.entries[0];
+
 			var query = {};
-			query.sql = 'INSERT INTO tblClockInOut(Id, BookingDate, BookingTime, Absence, TimeType, Comment) Values(?,?,?,?,?,?)';
-			query.data = [model.Id, model.BookingDate, model.BookingTime, model.Absence, model.TimeType, model.Comment];
+			query.sql = 'INSERT INTO tblClockInOut(Id, UserId, PersonId, Time, TimeTypeNo, Comment) Values(?,?,?,?,?,?)';
+			query.data = [ data.Id, model.userid, data.PersonId, data.Time, data.TimeTypeNo, data.Comment];
 
 			return query;
 		},
 
+		'PUT': 'UPDATE tblClockInOut',
 		'GET': function(){
 			var query = {};
 			query.sql = 'SELECT * FROM tblClockInOut';
 			return query;
 		},
-		'DELETE': 'DELETE * FROM tblClockInOut'
+		'DELETE': 'DELETE {} FROM tblClockInOut'
 	};
 
 	// Abwesenheitszeit Queries
 	QueryBuilder.prototype.absenceTime = {
 		'POST': function(model){
 
+			var data = model.entries[0];
+
 			var query = {};
-			query.sql = 'INSERT INTO tblAbsenceTime(Id, PersonId, TimeAmount, Date, TimeTypeNo, Comment) Values(?,?,?,?,?,?)';
-			query.data = [model.Id, model.PersonId, model.TimeAmount, model.Date, model.TimeTypeNo, model.Comment];
+			query.sql = 'INSERT INTO tblAbsenceTime(Id, UserId, PersonId,  TimeAmount, Date, TimeTypeNo, Comment) Values(?,?,?,?,?,?)';
+			query.data = [data.Id, model.userid, data.PersonId, data.TimeAmount, data.Date, data.TimeTypeNo, data.Comment];
 
 			return query;
 		},
@@ -45,13 +50,15 @@ define([
 		'DELETE': 'DELETE * FROM tblAbsenceTime'
 	};
 
-	// Abwesenheitszeit Queries
+	// Abwesenheitsbereich Queries
 	QueryBuilder.prototype.absenceRange = {
 		'POST': function(model){
 
+			var data = model.entries[0];
+
 			var query = {};
-			query.sql = 'INSERT INTO tblAbsenceRange(Id, PersonId, TimeFrom, TimeTo, Date, TimeTypeNo, Comment) Values(?,?,?,?,?,?,?)';
-			query.data = [model.Id, model.PersonId, model.TimeAmount, model.Date, model.TimeTypeNo, model.Comment];
+			query.sql = 'INSERT INTO tblAbsenceRange(Id, UserId, PersonId,  TimeFrom, TimeTo, Date, TimeTypeNo, Comment) Values(?,?,?,?,?,?,?)';
+			query.data = [data.Id, model.userid, data.PersonId, data.TimeFrom, data.TimeTo, data.Date, data.TimeTypeNo, data.Comment];
 
 			return query;
 		},
@@ -68,9 +75,11 @@ define([
 	QueryBuilder.prototype.halfFullDayAbsence = {
 		'POST': function(model){
 
+			var data = model.entries[0];
+
 			var query = {};
-			query.sql = 'INSERT INTO tblHalfFullDayAbsence(Id, PersonId, DateFrom, DateTo, DateFromType, DateToType, DateToType, TimeTypeNo, Comment) Values(?,?,?,?,?,?,?,?,?)';
-			query.data = [model.Id, model.PersonId, model.TimeAmount, model.Date, model.TimeTypeNo, model.Comment];
+			query.sql = 'INSERT INTO tblHalfFullDayAbsence(Id, UserId, PersonId, DateFrom, DateTo, DateFromType, DateToType, TimeTypeNo, Comment) Values(?,?,?,?,?,?,?,?,?)';
+			query.data = [data.Id, model.userid, data.PersonId, data.DateFrom, data.DateTo, data.DateFromType, data.DateToType, data.TimeTypeNo, data.Comment];
 
 			return query;
 		},

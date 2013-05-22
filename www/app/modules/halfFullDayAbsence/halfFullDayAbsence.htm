@@ -15,44 +15,32 @@
     <li>
       <label>
         <label for="" data-bind="text: dialogTexts.dateFrom"></label>
-        <input id="dateFrom" type="date" data-bind="checked: model.DateFrom">
+        <input id="dateFrom" type="date" data-bind="value: model.DateFrom">
       </label>
     </li>
     <li>
       <label>
         <label for="" data-bind="text: dialogTexts.dayPart"></label>
-        <select name="" id="absenceList" data-bind="value: model.DateFromType">
-          <option value="1">
-            <label for="" data-bind="text: dialogTexts.morning"></label>
-          </option>
-          <option value="2">
-            <label for="" data-bind="text: dialogTexts.fullDay"></label>
-          </option>
-          <option value="3">
-            <label for="" data-bind="text: dialogTexts.afternoon"></label>
-          </option>
+        <select name="" id="dateFromType" data-bind="value: model.DateFromType">
+          <option class="morningLabel" value="1"></option>
+          <option class="fullDayLabel" value="2"></option>
+          <option class="afternoonLabel" value="3"></option>
         </select>
       </label>
     </li>
     <li>
       <label>
         <label for="" data-bind="text: dialogTexts.dateTo"></label>
-        <input id="dateFrom" type="date" data-bind="checked: model.DateTo">
+        <input id="dateFrom" type="date" data-bind="value: model.DateTo">
       </label>
     </li>
     <li>
       <label>
         <label for="" data-bind="text: dialogTexts.dayPart"></label>
-        <select name="" id="absenceList" data-bind="value: model.DateToType">
-          <option value="1">
-            <label for="" data-bind="text: dialogTexts.morning"></label>
-          </option>
-          <option value="2">
-            <label for="" data-bind="text: dialogTexts.fullDay"></label>
-          </option>
-          <option value="3">
-            <label for="" data-bind="text: dialogTexts.afternoon"></label>
-          </option>
+        <select name="" id="dateToType" data-bind="value: model.DateToType">
+          <option class="morningLabel" value="1"></option>
+          <option class="fullDayLabel" value="2"></option>
+          <option class="afternoonLabel" value="3"></option>
         </select>
       </label>
     </li>

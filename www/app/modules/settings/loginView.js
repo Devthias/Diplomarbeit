@@ -95,6 +95,8 @@ define([
 			app.hideLoadingIndicator();
 
 			app.hideNavigation();
+
+			console.log(response);
 			navigator.notification.alert('Login fehlgeschlagen', this.notificationCallback, 'Fehlgeschlagen', 'Ok');
 			
 		},

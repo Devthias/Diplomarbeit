@@ -38,7 +38,7 @@ define([
       entry.Comment = this.Comment;
       var message = new Object();
       message.userid = 104;
-      message.entry = entry;
+      message.entries = [entry];
 
       console.log(entry.Time);
 

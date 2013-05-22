@@ -23,7 +23,6 @@ define([
 			data: jsonData,
 			contentType: "application/json",
       crossDomain: true,
-      timeout: 1000,
 			success: function (result) {
 				callback(result);
 			},
@@ -46,7 +45,6 @@ define([
 			contentType: "application/json",
 			data: JSON.stringify(request.data),
       crossDomain: true,
-      timeout: 1000,
 			success: function (result) {
 				callback(result);
 			},

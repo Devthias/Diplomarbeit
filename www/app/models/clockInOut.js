@@ -12,7 +12,7 @@ define([
     //
     // Properties
     //
-    PersonId: 104,
+    PersonId: 0,
     Time: null,
     Date: null,
     TimeTypeNo: 0,
@@ -26,14 +26,14 @@ define([
     getMessageObject: function(){
       var entry = new Object();
 
-      entry.PersonId = this.PersonId;
+      entry.PersonId = app.loginInformation.UserID;
       entry.Time = Helper.dateToWcfFormat(kendo.toString(kendo.parseDate(this.Date + this.Time)));
       entry.TimeTypeNo = this.TimeTypeNo;
       entry.Comment = this.Comment;
 
       var message = new Object();
-      message.userid = 104;
-      message.entry = entry;
+      message.userid = app.loginInformation.UserID;
+      message.entries = [entry];
 
       return message;
     },
